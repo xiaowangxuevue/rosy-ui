@@ -1,30 +1,52 @@
-<script setup>
-import Topnav from "@/components/Topnav";
+<script setup lang="ts">
+import Topnav from "@/components/Topnav.vue";
+import { inject, type Ref } from "vue";
+
+const asideVisible = inject<Ref<boolean>>("asideVisible");
+const toggleAside = () => {
+  asideVisible.value = !asideVisible.value;
+};
 </script>
 <template>
   <div class="layout">
     <Topnav class="nav" />
     <div class="content">
-      <aside>
-        <h2>组件列表</h2>
-        <ol>
-          <li>
-            <router-link to="/doc/switch">Switch 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/button">Button 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/dialog">Dialog 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/tabs">Tabs 组件</router-link>
-          </li>
-        </ol>
-      </aside>
-      <!-- <main>
+      <transition name="fade">
+        <aside v-show="asideVisible">
+          <div class="menu">
+            <div class="menu-group">
+              <span class="menu-group-title text-overflow"> 通用组件 (4) </span>
+              <router-link class="menu-item text-overflow" to="/doc/switch"
+                >Switch 组件</router-link
+              >
+              <router-link class="menu-item text-overflow" to="/doc/button"
+                >Button 组件</router-link
+              >
+              <router-link class="menu-item text-overflow" to="/doc/dialog"
+                >Dialog 组件</router-link
+              >
+              <router-link class="menu-item text-overflow" to="/doc/tabs"
+                >Tabs 组件</router-link
+              >
+            </div>
+          </div>
+        </aside>
+      </transition>
+      <div
+        class="toggle-button"
+        @click="toggleAside"
+        :style="{
+          left: asideVisible ? '272px' : '0px',
+          transform: asideVisible
+            ? 'rotate(180deg) translateX(50%)'
+            : 'rotate(0deg) translateX(50%)',
+        }"
+      >
+        <img src="@/assets/svg/箭头 右.svg" alt="" />
+      </div>
+      <main>
         <router-view />
-      </main> -->
+      </main>
     </div>
   </div>
 </template>
@@ -38,43 +60,118 @@ import Topnav from "@/components/Topnav";
   }
   > .content {
     flex-grow: 1;
-    padding-top: 60px;
-    padding-left: 156px;
-    @media (max-width: 500px) {
-      padding-left: 0;
-    }
+    position: absolute;
+    top: 63px;
+    left: 0px;
+    height: calc(100% - 63px);
+    width: 100%;
   }
 }
 .content {
   display: flex;
+  transition: all 0.5 ease;
   > aside {
     flex-shrink: 0;
   }
   > main {
     flex-grow: 1;
-    padding: 16px;
-    background: lightgreen;
+    box-sizing: border-box;
+    padding: 32px 24px 56px 56px;
   }
 }
 aside {
-  background: lightblue;
-  width: 150px;
+  width: 272px;
   padding: 16px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 80px;
-  height: 100%;
-  > h2 {
-    margin-bottom: 4px;
+  background-color: #fff;
+  border-right: 1px solid #efeff5;
+
+  .menu,
+  .menu-group {
+    width: 100%;
   }
-  > ol {
-    > li {
-      padding: 4px 0;
+
+  .menu-group-title,
+  .menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .menu-group-title {
+    height: 36px;
+    padding-left: 32px;
+    font-size: 13px;
+    color: rgb(118, 124, 130);
+    overflow: hidden;
+
+    &:hover {
+      cursor: default;
     }
   }
+
+  .menu-item {
+    height: 44px;
+    padding-left: 48px;
+    color: rgb(51, 54, 57);
+    font-size: 14px;
+
+    &:hover {
+      color: #18a058 !important;
+    }
+  }
+
+  .router-link-exact-active {
+    color: #18a058 !important;
+    background-color: #e7f5ee;
+    border-radius: 3px;
+  }
 }
+
+.toggle-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgb(239, 239, 245);
+  position: absolute;
+  left: 272px;
+  top: 240px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0px rgb(0 0 0 / 6%);
+  transition: left 0.5s ease, transform 0.1s ease;
+
+  > img {
+    width: 12px;
+    height: 12px;
+  }
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+}
+
 main {
+  transition: all 0.5 ease;
   overflow: auto;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  width: 0;
+  padding: 0;
+}
+
+.fade-leave-from {
+  width: 272px;
+  padding: 16px;
 }
 </style>
