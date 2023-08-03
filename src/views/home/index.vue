@@ -4,11 +4,10 @@ import Button from "@/lib/button/index.vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-console.log(router);
 
 const linkTo = (params) => {
   if (params === "github") {
-    window.open("https://github.com/coderyjw/jw-ui", "_blank");
+    window.open("https://github.com/coderyrosy/rosy-ui", "_blank");
   } else if (params === "getStart") {
     router.push({
       path: "/doc",
@@ -21,7 +20,7 @@ const linkTo = (params) => {
   <div class="topnavAndBanner">
     <Topnav :toggleMenuButton="false" />
     <div class="banner">
-      <h1>JW UI</h1>
+      <h1>rosy UI</h1>
       <p>一个 Vue 3 组件库</p>
       <div class="actions">
         <Button @click="linkTo('github')">GitHub</Button>
@@ -99,11 +98,11 @@ const linkTo = (params) => {
     display: flex;
     align-items: center;
     justify-content: center;
-    .jw-button {
+    .rosy-button {
       height: 40px;
       padding: 0 18px;
     }
-    .jw-button:last-of-type {
+    .rosy-button:last-of-type {
       margin-left: 20px;
     }
   }

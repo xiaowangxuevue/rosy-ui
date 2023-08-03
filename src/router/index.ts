@@ -3,10 +3,10 @@ import { createWebHistory, createRouter } from "vue-router";
 
 import Home from "@/views/home/index.vue";
 import Doc from "@/views/doc/index.vue";
-import SwitchDemo from "@/components/SwitchDemo.vue";
-import ButtonDemo from "@/components/ButtonDemo.vue";
-import DialogDemo from "@/components/DialogDemo.vue";
-import TabsDemo from "@/components/TabsDemo.vue";
+import SwitchDoc from "@/views/doc/switch/index.vue";
+import ButtonDoc from "@/views/doc/button/index.vue";
+import DialogDoc from "@/views/doc/dialog/index.vue";
+import TabsDoc from "@/views/doc/tabs/index.vue";
 
 import Markdown from "@/components/Markdown.vue";
 const md = (filename) =>
@@ -25,10 +25,10 @@ const router = createRouter({
         { path: "intro", component: md("intro") },
         { path: "install", component: md("install") },
         { path: "get-started", component: md("get-started") },
-        { path: "switch", component: SwitchDemo },
-        { path: "button", component: ButtonDemo },
-        { path: "dialog", component: DialogDemo },
-        { path: "tabs", component: TabsDemo },
+        { path: "switch", component: SwitchDoc },
+        { path: "button", component: ButtonDoc },
+        { path: "dialog", component: DialogDoc },
+        { path: "tabs", component: TabsDoc },
       ],
     },
   ],
