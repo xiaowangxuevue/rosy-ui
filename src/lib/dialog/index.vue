@@ -1,34 +1,3 @@
-<template>
-  <template v-if="modelValue">
-    <Teleport to="body">
-      <div
-        class="jw-dialog-overlay"
-        v-if="overlay"
-        @click="onOverlayClick"
-      ></div>
-      <div class="jw-dialog">
-        <div class="jw-dialog-wrapper">
-          <header>
-            <slot name="title">{{ title }}</slot>
-            <span class="jw-dialog-close" @click="close"></span>
-          </header>
-          <main>
-            <slot>
-              <p>这是一条消息</p>
-            </slot>
-          </main>
-          <footer>
-            <slot name="footer">
-              <Button @click="cancel">Cancel</Button>
-              <Button theme="primary" @click="confirm">Primary</Button>
-            </slot>
-          </footer>
-        </div>
-      </div>
-    </Teleport>
-  </template>
-</template>
-
 <script setup lang="ts">
 import Button from "@/lib/button/index.vue";
 
@@ -38,6 +7,7 @@ const props = defineProps({
     default: false,
   },
   overlay: {
+    //控制遮罩,默认打开的时候就为true
     type: true,
     default: true,
   },
@@ -60,6 +30,8 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const close = () => {
+  console.log(132);
+
   emit("update:modelValue", false);
 };
 
@@ -70,28 +42,66 @@ const onOverlayClick = () => {
 };
 
 const confirm = () => {
+  console.log(props.confirm?.(), "1");
+
   if (props.confirm?.() !== false) {
     close();
   }
 };
 
 const cancel = () => {
+  console.log(props.cancel?.(), "2");
+
   if (props.cancel?.() !== false) {
     close();
   }
 };
 </script>
 
+
+
+
+<template>
+  <template v-if="modelValue">
+    <Teleport to="body"
+      ><div
+        class="rosy-dialog-overlay"
+        v-if="overlay"
+        @click="onOverlayClick"
+      ></div>
+      <div class="rosy-dialog">
+        <div class="rosy-dialog-wrapper">
+          <header>
+            <slot name="title">{{ title }}</slot>
+            <span class="rosy-dialog-close" @click="close"></span>
+          </header>
+          <main>
+            <slot>
+              <p>这是一条消息</p>
+            </slot>
+          </main>
+          <footer>
+            <slot name="footer">
+              <Button @click="cancel">Cancel</Button>
+              <Button theme="primary" @click="confirm">Primary</Button>
+            </slot>
+          </footer>
+        </div>
+      </div>
+    </Teleport>
+  </template>
+</template>
+
+
+
 <style lang="scss">
 $radius: 3px;
 $border-color: #d9d9d9;
 $primary-color: #36ad6a;
-
-.jw-dialog {
+.rosy-dialog {
   box-sizing: border-box;
   border-radius: $radius;
   box-shadow: 0 0 3px fade_out(black, 0.5);
-
   &-overlay {
     background-color: #00000080;
     position: fixed;
@@ -102,7 +112,6 @@ $primary-color: #36ad6a;
     height: 100%;
     z-index: 10;
   }
-
   &-wrapper {
     position: fixed;
     left: 50%;
@@ -112,7 +121,6 @@ $primary-color: #36ad6a;
     max-width: calc(100vw - 32px);
     width: 446px;
     background: white;
-
     > header {
       padding: 20px;
       display: flex;
@@ -126,8 +134,7 @@ $primary-color: #36ad6a;
     > footer {
       padding: 20px;
       text-align: right;
-
-      .jw-button + .jw-button {
+      .rosy-button + .rosy-button {
         margin-left: 12px;
       }
     }
@@ -153,7 +160,6 @@ $primary-color: #36ad6a;
       &::after {
         transform: translate(-50%, -50%) rotate(45deg);
       }
-
       &:hover::before,
       &:hover:after {
         background: $primary-color;

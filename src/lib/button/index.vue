@@ -1,11 +1,15 @@
 <template>
-  <button class="jw-button" :class="classes">
-    <span v-if="loading" class="jw-loadingIndicator"></span>
-    <slot> {{ theme }} </slot>
+  <button class="rosy-button" :class="classes">
+    <span v-if="loading" class="rosy-loadingIndicator"></span>
+    <slot>{{ theme }}</slot>
   </button>
 </template>
+  
+  
+  
+  
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, useAttrs } from "vue";
 const props = defineProps({
   theme: {
     type: String,
@@ -32,13 +36,12 @@ const props = defineProps({
     default: false,
   },
 });
-
 const { theme, dashed, size, round, disabled } = props;
 const classes = computed(() => {
   return {
-    [`jw-theme-${theme}`]: theme,
-    [`jw-theme-dashed`]: dashed,
-    [`jw-size-${size}`]: size,
+    [`rosy-theme-${theme}`]: theme,
+    [`rosy-theme-dashed`]: dashed,
+    [`rosy-size-${size}`]: size,
     [`is-round`]: round,
     [`is-disabled`]: disabled,
   };
@@ -57,13 +60,10 @@ $success-color: #85ce61;
 $warning-color: #f0a020;
 $error-color: #d03050;
 $grey: grey;
-
 $default-border-color: #d9d9d9;
-
 $radius: 3px;
 $green: #18a058;
-
-.jw-button {
+.rosy-button {
   box-sizing: border-box;
   height: $h-default;
   background-color: #fff;
@@ -79,42 +79,36 @@ $green: #18a058;
   color: $default-color;
   border: 1px solid $default-border-color;
   user-select: none;
-
   &:focus {
     outline: none;
   }
-
   &::-moz-focus-inner {
     border: 0;
   }
-
-  &.jw-size-large {
+  &.rosy-size-large {
     font-size: 24px;
     height: $h-large;
     padding: 0 16px;
   }
-  &.jw-size-small {
+  &.rosy-size-small {
     font-size: 12px;
     height: $h-small;
     padding: 0 8px;
   }
-
-  &.is-round.jw-size-default {
+  &.is-round.rosy-size-default {
     border-radius: calc($h-default / 2);
   }
-  &.is-round.jw-size-large {
+  &.is-round.rosy-size-large {
     border-radius: calc($h-large / 2);
   }
-  &.is-round.jw-size-small {
+  &.is-round.rosy-size-small {
     border-radius: calc($h-small / 2);
   }
-
-  &.jw-theme-default {
+  &.rosy-theme-default {
     &:hover {
       color: $green;
       border-color: $green;
-
-      > .jw-loadingIndicator {
+      > .rosy-loadingIndicator {
         border-style: dashed;
         border-color: $green $green $green transparent;
       }
@@ -122,26 +116,24 @@ $green: #18a058;
     &:active {
       color: darken($green, 20%);
       border-color: darken($green, 20%);
-
-      > .jw-loadingIndicator {
+      > .rosy-loadingIndicator {
         border-style: dashed;
         border-color: darken($green, 20%) darken($green, 20%)
           darken($green, 20%) transparent;
       }
     }
-    &.jw-theme-dashed {
+    &.rosy-theme-dashed {
       border-style: dashed;
     }
-    > .jw-loadingIndicator {
+    > .rosy-loadingIndicator {
       border-style: dashed;
       border-color: $default-color $default-color $default-color transparent;
     }
   }
-  &.jw-theme-primary {
+  &.rosy-theme-primary {
     background-color: $primary-color;
     border-color: $primary-color;
     color: $white;
-
     &:hover {
       background: lighten($primary-color, 20%);
       border-color: lighten($primary-color, 20%);
@@ -150,7 +142,6 @@ $green: #18a058;
       background-color: darken($primary-color, 20%);
       border-color: darken($primary-color, 20%);
     }
-
     &.is-disabled {
       cursor: not-allowed;
       background: lighten($primary-color, 20%);
@@ -160,20 +151,17 @@ $green: #18a058;
         border-color: lighten($primary-color, 20%);
       }
     }
-
-    &.jw-theme-dashed {
+    &.rosy-theme-dashed {
       border-style: dashed;
       background-color: $white !important;
       color: $primary-color;
-
-      > .jw-loadingIndicator {
+      > .rosy-loadingIndicator {
         border-style: dashed;
         border-color: $primary-color $primary-color $primary-color transparent;
       }
     }
   }
-
-  &.jw-theme-info {
+  &.rosy-theme-info {
     background-color: $info-color;
     border-color: $info-color;
     color: $white;
@@ -185,7 +173,6 @@ $green: #18a058;
       background-color: darken($info-color, 20%);
       border-color: darken($info-color, 20%);
     }
-
     &.is-disabled {
       cursor: not-allowed;
       background: lighten($info-color, 20%);
@@ -195,20 +182,17 @@ $green: #18a058;
         border-color: lighten($info-color, 20%);
       }
     }
-
-    &.jw-theme-dashed {
+    &.rosy-theme-dashed {
       border-style: dashed;
       background-color: $white !important;
       color: $info-color;
-
-      > .jw-loadingIndicator {
+      > .rosy-loadingIndicator {
         border-style: dashed;
         border-color: $info-color $info-color $info-color transparent;
       }
     }
   }
-
-  &.jw-theme-success {
+  &.rosy-theme-success {
     background-color: $success-color;
     border-color: $success-color;
     color: $white;
@@ -220,7 +204,6 @@ $green: #18a058;
       background-color: darken($success-color, 20%);
       border-color: darken($success-color, 20%);
     }
-
     &.is-disabled {
       cursor: not-allowed;
       background: lighten($success-color, 20%);
@@ -230,20 +213,17 @@ $green: #18a058;
         border-color: lighten($success-color, 20%);
       }
     }
-
-    &.jw-theme-dashed {
+    &.rosy-theme-dashed {
       border-style: dashed;
       background-color: $white !important;
       color: $success-color;
-
-      > .jw-loadingIndicator {
+      > .rosy-loadingIndicator {
         border-style: dashed;
         border-color: $success-color $success-color $success-color transparent;
       }
     }
   }
-
-  &.jw-theme-warning {
+  &.rosy-theme-warning {
     background-color: $warning-color;
     border-color: $warning-color;
     color: $white;
@@ -255,7 +235,6 @@ $green: #18a058;
       background-color: darken($warning-color, 20%);
       border-color: darken($warning-color, 20%);
     }
-
     &.is-disabled {
       cursor: not-allowed;
       background: lighten($warning-color, 20%);
@@ -265,20 +244,17 @@ $green: #18a058;
         border-color: lighten($warning-color, 20%);
       }
     }
-
-    &.jw-theme-dashed {
+    &.rosy-theme-dashed {
       border-style: dashed;
       background-color: $white !important;
       color: $warning-color;
-
-      > .jw-loadingIndicator {
+      > .rosy-loadingIndicator {
         border-style: dashed;
         border-color: $warning-color $warning-color $warning-color transparent;
       }
     }
   }
-
-  &.jw-theme-error {
+  &.rosy-theme-error {
     background-color: $error-color;
     border-color: $error-color;
     color: $white;
@@ -290,7 +266,6 @@ $green: #18a058;
       background-color: darken($error-color, 20%);
       border-color: darken($error-color, 20%);
     }
-
     &.is-disabled {
       cursor: not-allowed;
       background: lighten($error-color, 20%);
@@ -300,20 +275,17 @@ $green: #18a058;
         border-color: lighten($error-color, 20%);
       }
     }
-
-    &.jw-theme-dashed {
+    &.rosy-theme-dashed {
       border-style: dashed;
       background-color: $white !important;
       color: $error-color;
-
-      > .jw-loadingIndicator {
+      > .rosy-loadingIndicator {
         border-style: dashed;
         border-color: $error-color $error-color $error-color transparent;
       }
     }
   }
-
-  > .jw-loadingIndicator {
+  > .rosy-loadingIndicator {
     width: 14px;
     height: 14px;
     display: inline-block;
@@ -322,11 +294,10 @@ $green: #18a058;
     border-color: $white $white $white transparent;
     border-style: solid;
     border-width: 2px;
-    animation: jw-spin 1s infinite linear;
+    animation: rosy-spin 1s infinite linear;
   }
 }
-
-@keyframes jw-spin {
+@keyframes rosy-spin {
   0% {
     transform: rotate(0deg);
   }

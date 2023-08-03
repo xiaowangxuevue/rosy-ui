@@ -3,11 +3,16 @@
     <slot />
   </div>
 </template>
+<script setup lang="ts">
 
-<script setup lang="ts"></script>
+
+
+</script>
+  
+
 <script>
 export default {
-  name: "JwTab",
-};
+  name:"ROSYTab",
+}
 </script>
 <style scoped></style>

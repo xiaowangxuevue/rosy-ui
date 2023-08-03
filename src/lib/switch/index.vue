@@ -1,6 +1,6 @@
 <template>
   <button
-    class="jw-switch"
+    class="rosy-switch"
     :class="classes"
     @click="toggle"
     :style="{ background: modelValue ? inactiveColor : activeColor }"
@@ -11,7 +11,6 @@
 
 <script setup lang="ts">
 import { ref, computed, toRefs } from "vue";
-
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -34,9 +33,7 @@ const props = defineProps({
     default: "default",
   },
 });
-
 const emit = defineEmits(["update:modelValue"]);
-
 const toggle = () => {
   if (props.disabled) {
     return;
@@ -44,12 +41,11 @@ const toggle = () => {
   emit("update:modelValue", !props.modelValue);
 };
 const { modelValue, disabled, size } = toRefs(props);
-
 const classes = computed(() => {
   return {
-    [`jw-switch-checked`]: modelValue.value,
-    [`jw-switch-disabled`]: disabled.value,
-    [`jw-switch-${size.value}`]: size.value,
+    [`rosy-switch-checked`]: modelValue.value,
+    [`rosy-switch-disabled`]: disabled.value,
+    [`rosy-switch-${size.value}`]: size.value,
   };
 });
 </script>
@@ -57,16 +53,13 @@ const classes = computed(() => {
 <style lang="scss" scoped>
 $default-h: 22px;
 $default-h-2: $default-h - 4px;
-
 $small-h: 16px;
 $small-h-2: $small-h - 4px;
-
 $large-h: 30px;
 $large-h-2: $large-h - 4px;
-
 $inactive-color: #dbdbdb;
 $active-color: #18a058;
-.jw-switch {
+.rosy-switch {
   height: $default-h;
   width: $default-h * 2;
   border: none;
@@ -78,7 +71,6 @@ $active-color: #18a058;
   outline: none;
   -webkit-tap-highlight-color: #fff;
   -webkit-tap-highlight-color: transparent;
-
   &-disabled {
     cursor: not-allowed;
     opacity: 0.5;
@@ -86,7 +78,6 @@ $active-color: #18a058;
   &:focus {
     outline: none;
   }
-
   > span {
     position: absolute;
     top: 2px;
@@ -97,55 +88,47 @@ $active-color: #18a058;
     border-radius: calc($default-h-2 / 1.5);
     transition: all 250ms;
   }
-
-  &.jw-switch-checked {
+  &.rosy-switch-checked {
     background: $active-color;
     > span {
       left: calc(100% - $default-h-2 - 2px);
     }
-    &.jw-switch-small > span {
+    &.rosy-switch-small > span {
       left: calc(100% - $small-h-2 - 2px);
     }
-
-    &.jw-switch-large > span {
+    &.rosy-switch-large > span {
       left: calc(100% - $large-h-2 - 2px);
     }
   }
-
   &:active {
     > span {
       width: $default-h-2 + 4px;
     }
-
-    &.jw-switch-small > span {
+    &.rosy-switch-small > span {
       width: $small-h-2 + 4px;
     }
-
-    &.jw-switch-large > span {
+    &.rosy-switch-large > span {
       width: $large-h-2 + 4px;
     }
   }
-  &.jw-switch-checked:active {
+  &.rosy-switch-checked:active {
     > span {
       width: $default-h-2 + 4px;
       margin-left: -4px;
     }
-    &.jw-switch-small > span {
+    &.rosy-switch-small > span {
       width: $small-h-2 + 4px;
       margin-left: -4px;
     }
-
-    &.jw-switch-large > span {
+    &.rosy-switch-large > span {
       width: $large-h-2 + 4px;
       margin-left: -4px;
     }
   }
-
-  &.jw-switch-small {
+  &.rosy-switch-small {
     height: $small-h;
     width: $small-h * 2;
     border-radius: calc($small-h-2 / 1.5);
-
     > span {
       position: absolute;
       top: 2px;
@@ -157,12 +140,10 @@ $active-color: #18a058;
       transition: all 250ms;
     }
   }
-
-  &.jw-switch-large {
+  &.rosy-switch-large {
     height: $large-h;
     width: $large-h * 2;
     border-radius: calc($large-h-2 / 1.5);
-
     > span {
       position: absolute;
       top: 2px;

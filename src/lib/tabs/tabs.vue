@@ -1,8 +1,8 @@
 <template>
-  <div class="jw-tabs" :class="classes">
-    <div class="jw-tabs-header" ref="container">
+  <div class="rosy-tabs" :class="classes">
+    <div class="rosy-tabs-header" ref="container">
       <div
-        class="jw-tabs-header-item"
+        class="rosy-tabs-header-item"
         :class="{ 'is-active': modelValue === title }"
         v-for="(title, index) in titles"
         :key="index"
@@ -12,12 +12,12 @@
         {{ title }}
       </div>
       <div
-        class="jw-tabs-header-indicator"
+        class="rosy-tabs-header-indicator"
         v-if="type === 'line'"
         ref="indicator"
       ></div>
     </div>
-    <div class="jw-tabs-content">
+    <div class="rosy-tabs-content">
       <component
         v-if="current"
         :is="current"
@@ -28,7 +28,8 @@
 </template>
 
 <script setup lang="ts">
-import { useSlots, computed, ref, onMounted, watchEffect } from "vue";
+import { useSlots, computed, ref, onMounted, watchEffect, Ref } from "vue";
+
 import Tab from "./tab.vue";
 
 const props = defineProps({
@@ -40,22 +41,21 @@ const props = defineProps({
     default: "line",
   },
 });
+console.log(props.type, "props");
+const solts = useSlots().default?.();
 
-const slots = useSlots().default();
 const emits = defineEmits(["update:modelValue"]);
-const { type } = props;
-const classes = {
-  [`jw-tabs-${type}`]: type,
-};
 
-slots.forEach((tag) => {
+// console.log(solts,'solts');
+
+solts?.forEach((tag) => {
   // @ts-ignore
   if (tag.type.name !== Tab.name) {
-    throw new Error("Tabs 子标签必须是Tab");
+    throw new Error("Tabs子标签必须是Tab");
   }
 });
 
-const selectedItem = ref<HTMLDivElement>(null);
+const selectedItem: Ref<Nullable> = ref(null);
 const indicator = ref<HTMLDivElement>(null);
 const container = ref<HTMLDivElement>(null);
 
@@ -69,19 +69,27 @@ const renderIndicator = () => {
   if (selectedItem.value && props.type === "line") {
     const { width } = selectedItem.value.getBoundingClientRect();
     indicator.value.style.width = width + "px";
-
     const { left: left1 } = container.value.getBoundingClientRect();
-
     const { left: left2 } = selectedItem.value.getBoundingClientRect();
-    console.log({ width, left1, left2 });
     const left = left2 - left1;
+
     indicator.value.style.left = left + "px";
   }
 };
 
-const titles = slots.map((tag) => tag.props.title);
+const titles = solts.map((tag) => tag.props?.title);
+
 const current = computed(() => {
-  return slots.find((tag) => tag.props.title === props.modelValue);
+  return solts.find((tag) => tag.props?.title === props.modelValue);
+});
+console.log(current,'current');
+
+
+const { type } = props;
+const classes = computed(() => {
+  return {
+    [`rosy-tabs-${type}`]: type,
+  };
 });
 
 const handleTabsItemClick = (title: string) => {
@@ -103,22 +111,20 @@ $card-background: #f7f7fa;
 $white: #fff;
 $radius: 3px;
 $h: 40px;
-
-.jw-tabs.jw-tabs-line {
-  .jw-tabs-header {
+.rosy-tabs.rosy-tabs-line {
+  .rosy-tabs-header {
     display: flex;
     border-bottom: 1px solid $border-color;
     color: $color;
     position: relative;
     height: $h;
-
     &-item {
       margin: 0 16px;
       height: $h;
       line-height: $h;
       font-size: 14px;
       cursor: pointer;
-
+      white-space: nowrap;
       &.is-active,
       &:hover {
         color: $active-color;
@@ -127,7 +133,6 @@ $h: 40px;
     &-item:first-of-type {
       padding-left: 0;
     }
-
     &-indicator {
       position: absolute;
       height: 3px;
@@ -138,9 +143,8 @@ $h: 40px;
     }
   }
 }
-
-.jw-tabs.jw-tabs-card {
-  .jw-tabs-header {
+.rosy-tabs.rosy-tabs-card {
+  .rosy-tabs-header {
     display: flex;
     background-color: $card-background;
     border-radius: $radius;
@@ -161,7 +165,6 @@ $h: 40px;
       font-size: 14px;
       cursor: pointer;
       transition: all 250ms ease;
-
       &.is-active {
         background-color: $white;
         box-shadow: 0 1px 3px 0 rgb(0 0 0 / 8%);
@@ -169,8 +172,7 @@ $h: 40px;
     }
   }
 }
-
-.jw-tabs-content {
+.rosy-tabs-content {
   padding: 8px 0;
 }
 </style>
