@@ -1,5 +1,5 @@
 {
-  "name": "jw-ui",
+  "name": "rosy-ui",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --host",
