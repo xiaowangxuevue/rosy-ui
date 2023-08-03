@@ -53,7 +53,7 @@ const toggleAside = () => {
 <style lang="scss">
 .topnav {
   height: 63px;
-  background-color: #ffffff;
+  background-color: #882525;
   padding: 0 30px;
   display: flex;
   justify-content: space-between;
