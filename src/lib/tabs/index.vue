@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { useSlots, computed, ref, onMounted, watchEffect, Ref } from "vue";
 
-import Tab from "./tab.vue";
+import Tab from "../tab/index.vue";
 
 const props = defineProps({
   modelValue: {
