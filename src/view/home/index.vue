@@ -5,9 +5,12 @@
     <div class="banner">
       <h1>Rosy-Ui</h1>
       <p>一个 Vue 3 组件库</p>
+      <p>有点儿意思~</p>
       <div class="actions">
         <ry-button @click="linkTo('github')">GitHub</ry-button>
-        <ry-button @click="linkTo('getStart')" theme="primary">开始使用</ry-button>
+        <ry-button @click="linkTo('getStart')" theme="primary"
+          >快速使用</ry-button
+        >
       </div>
     </div>
   </div>
@@ -82,6 +85,27 @@ const linkTo = (params) => {
     margin-bottom: 18px;
     font-family: Metropolis, sans-serif;
     text-size-adjust: 100%;
+    position: relative;
+    &:hover::before {
+      content: " ";
+      position: absolute;
+      top: 10px;
+      left: 49px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgb(44, 62, 80);
+    }
+    &:hover::after {
+      content: " ";
+      position: absolute;
+      top: 10px;
+      left: 86px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgb(44, 62, 80);
+    }
   }
   p {
     color: rgb(51, 54, 57);

@@ -14,12 +14,12 @@ export default {
             vue: 'vue'
         },
         name: 'Zrosy-ui',
-        file: 'dist/lib/rosy-ui.js',
+        file: 'dist/lib/zrosy-ui.js',
         format: 'umd',
         Plugins: [terser()]
     }, {
         name: 'Zrosy-ui',
-        file: 'dist/lib/rosy-ui.esm.js',
+        file: 'dist/lib/zrosy-ui.esm.js',
         format: 'es',
         Plugins: [terser()]
     }],
