@@ -1,4 +1,4 @@
-<demo>加载</demo>
+<preview>加载</preview>
 <template>
   <ry-button theme="default" loading>loading</ry-button >
   <ry-button  theme="primary" loading>loading</ry-button >

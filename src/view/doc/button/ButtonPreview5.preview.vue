@@ -1,4 +1,4 @@
-<demo>禁用</demo>
+<preview>禁用</preview>
 <template>
   <ry-button theme="primary" />
   <ry-button theme="primary" disabled />

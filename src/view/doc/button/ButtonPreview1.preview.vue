@@ -1,4 +1,4 @@
-<demo>基础</demo>
+<preview>基础</preview>
 <template>
   <ry-button theme="default" />
   <ry-button theme="primary" />

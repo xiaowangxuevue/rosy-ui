@@ -1,4 +1,4 @@
-<demo>尺寸</demo>
+<preview>尺寸</preview>
 <template>
   <ry-button theme="primary" size="large" />
   <ry-button theme="primary" size="default" />

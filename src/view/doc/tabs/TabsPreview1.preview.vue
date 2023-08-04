@@ -1,8 +1,8 @@
-<demo>
-    卡片风格
-    </demo>
+<preview>
+    基础用法
+    </preview>
     <template>
-  <ry-tabs v-model="selected" type="card">
+  <ry-tabs v-model="selected">
     <ry-tab title="兰亭临帖">兰亭临帖</ry-tab>
     <ry-tab title="行书">行书</ry-tab>
     <ry-tab title="如">如</ry-tab>
@@ -11,10 +11,9 @@
 </template>
     
 <script setup lang="ts">
-
 import { ref } from "vue";
 
 const selected = ref("兰亭临帖");
 </script>
     
-    <style scoped></style>
+<style scoped></style>

@@ -4,20 +4,19 @@ import fs from 'fs';
 import { baseParse } from "@vue/compiler-core" //将Vue单文件组件解析成AST（抽象语法树）
 
 const vitePluginVue = {
-  name: "demo",
+  name: "preview",
   transform(code, id) {
   
-    const str = 'src/view/doc/button/ButtonDemo5.demo.vue'
- 
-    if (!/\/src\/view\/doc\/.*\.demo\.vue/.test(id) || !/vue&type=demo/.test(id)) {
+
+    if (!/\/src\/view\/doc\/.*\.preview\.vue/.test(id) || !/vue&type=preview/.test(id)) {
       return;
     }
 
 
-    let path = `.${id.match(/\/src\/view\/doc\/.*\.demo\.vue/)[0]}`;
+    let path = `.${id.match(/\/src\/view\/doc\/.*\.preview\.vue/)[0]}`;
     
     const file = fs.readFileSync(path).toString();
-    const parsed = baseParse(file).children.find((n) => n.tag === "demo")
+    const parsed = baseParse(file).children.find((n) => n.tag === "preview")
 
   
     const title = parsed.children[0].content;

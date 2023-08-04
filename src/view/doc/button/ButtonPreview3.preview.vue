@@ -1,4 +1,4 @@
-<demo>圆角</demo>
+<preview>圆角</preview>
 <template>
   <ry-button theme="default" round />
   <ry-button theme="primary" round />

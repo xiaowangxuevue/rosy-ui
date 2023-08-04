@@ -1,25 +1,24 @@
 <template>
-  <h1>Button 示例</h1>
-  <div class="demo-wrapper">
-    <Demo :component="ButtonDemo1" />
-    <Demo :component="ButtonDemo2" />
-    <Demo :component="ButtonDemo3" />
-    <Demo :component="ButtonDemo4" />
-    <Demo :component="ButtonDemo5" />
-    <Demo :component="ButtonDemo6" />
+  <div class="button-doc-wrapper">
+    <h1>Button示例</h1>
+    <Preview :component="ButtonPreview1" />
+    <Preview :component="ButtonPreview2" />
+    <Preview :component="ButtonPreview3" />
+    <Preview :component="ButtonPreview4" />
+    <Preview :component="ButtonPreview5" />
+    <Preview :component="ButtonPreview6" />
   </div>
 </template>
 
 <script setup lang="ts">
-import Demo from "@/components/Demo.vue";
-import ButtonDemo1 from "@/view/doc/button/ButtonDemo1.demo.vue";
-import ButtonDemo2 from "@/view/doc/button/ButtonDemo2.demo.vue";
-import ButtonDemo3 from "@/view/doc/button/ButtonDemo3.demo.vue";
-import ButtonDemo4 from "@/view/doc/button/ButtonDemo4.demo.vue";
-import ButtonDemo5 from "@/view/doc/button/ButtonDemo5.demo.vue";
-import ButtonDemo6 from "@/view/doc/button/ButtonDemo6.demo.vue";
+import Preview from "@/components/Preview.vue";
+import ButtonPreview1 from "./ButtonPreview1.preview.vue";
+import ButtonPreview2 from "./ButtonPreview2.preview.vue";
+import ButtonPreview3 from "./ButtonPreview3.preview.vue";
+import ButtonPreview4 from "./ButtonPreview4.preview.vue";
+import ButtonPreview5 from "./ButtonPreview5.preview.vue";
+import ButtonPreview6 from "./ButtonPreview6.preview.vue";
 </script>
-
 <style lang="scss">
 .rosy-button + .rosy-button {
   margin-left: 8px;

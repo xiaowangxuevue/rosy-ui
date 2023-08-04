@@ -1,4 +1,4 @@
-<demo>基础用法</demo>
+<preview>基础用法</preview>
 <template>
   <div>
     <ry-button theme="primary" @click="toggle">点击打开对话框</ry-button>

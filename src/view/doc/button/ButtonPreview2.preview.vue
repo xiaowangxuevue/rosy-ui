@@ -1,4 +1,4 @@
-<demo>虚线</demo>
+<preview>虚线</preview>
 <template>
   <ry-button theme="default" dashed />
   <ry-button theme="primary" dashed />
