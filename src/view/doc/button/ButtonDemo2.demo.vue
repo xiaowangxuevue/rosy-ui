@@ -1,13 +1,13 @@
 <demo>虚线</demo>
 <template>
-  <Button theme="default" dashed />
-  <Button theme="primary" dashed />
-  <Button theme="info" dashed />
-  <Button theme="success" dashed />
-  <Button theme="warning" dashed />
-  <Button theme="error" dashed />
+  <ry-button theme="default" dashed />
+  <ry-button theme="primary" dashed />
+  <ry-button theme="info" dashed />
+  <ry-button theme="success" dashed />
+  <ry-button theme="warning" dashed />
+  <ry-button theme="error" dashed />
 </template>
 
 <script setup lang="ts">
-import Button from "@/lib/button/index.vue";
+
 </script>

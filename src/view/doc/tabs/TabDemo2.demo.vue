@@ -2,17 +2,16 @@
     卡片风格
     </demo>
     <template>
-  <Tabs v-model="selected" type="card">
-    <Tab title="兰亭临帖">兰亭临帖</Tab>
-    <Tab title="行书">行书</Tab>
-    <Tab title="如">如</Tab>
-    <Tab title="行云流水">行云流水</Tab>
-  </Tabs>
+  <ry-tabs v-model="selected" type="card">
+    <ry-tab title="兰亭临帖">兰亭临帖</ry-tab>
+    <ry-tab title="行书">行书</ry-tab>
+    <ry-tab title="如">如</ry-tab>
+    <ry-tab title="行云流水">行云流水</ry-tab>
+  </ry-tabs>
 </template>
     
 <script setup lang="ts">
-import Tabs from "@/lib/tabs/index.vue";
-import Tab from "@/lib/tab/index.vue";
+
 import { ref } from "vue";
 
 const selected = ref("兰亭临帖");

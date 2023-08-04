@@ -49,6 +49,12 @@ const classes = computed(() => {
   };
 });
 </script>
+<script lang="ts">
+export default {
+  name: "RySwitch",
+};
+</script>
+
 
 <style lang="scss" scoped>
 $default-h: 22px;

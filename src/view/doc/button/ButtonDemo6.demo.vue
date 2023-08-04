@@ -1,14 +1,14 @@
 <demo>加载</demo>
 <template>
-  <Button theme="default" loading>loading</Button>
-  <Button theme="primary" loading>loading</Button>
-  <Button theme="info" loading>loading</Button>
-  <Button theme="success" loading>loading</Button>
-  <Button theme="warning" loading>loading</Button>
-  <Button theme="error" loading>loading</Button>
-  <Button theme="primary">loaded</Button>
+  <ry-button theme="default" loading>loading</ry-button >
+  <ry-button  theme="primary" loading>loading</ry-button >
+  <ry-button  theme="info" loading>loading</ry-button >
+  <ry-button  theme="success" loading>loading</ry-button >
+  <ry-button  theme="warning" loading>loading</ry-button >
+  <ry-button theme="error" loading>loading</ry-button >
+  <ry-button  theme="primary">loaded</ry-button >
 </template>
 
 <script setup lang="ts">
-import Button from "@/lib/button/index.vue";
+
 </script>

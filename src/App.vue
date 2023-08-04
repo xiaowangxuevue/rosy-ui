@@ -1,3 +1,8 @@
+
+<template>
+  <router-view></router-view>
+</template>
+
 <script setup>
 import { ref, provide } from "vue";
 import router from "./router";
@@ -22,10 +27,6 @@ window.onresize = () => {
   }
 }
 </script>
-
-<template>
-  <router-view></router-view>
-</template>
 
 <style lang="scss" scoped>
 

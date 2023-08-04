@@ -2,8 +2,8 @@
   <div class="demo">
     <h2>
       {{ component.__sourceCodeTitle }}
-      <Button @click="hideCode" v-if="codeVisible">隐藏代码</Button>
-      <Button @click="showCode" v-else>查看代码</Button>
+      <ry-Button @click="hideCode" v-if="codeVisible">隐藏代码</ry-Button>
+      <ry-Button @click="showCode" v-else>查看代码</ry-Button>
     </h2>
     <div class="demo-component">
       <component :is="component" />
@@ -18,7 +18,6 @@
 
 
 <script setup lang="ts">
-import Button from "@/lib/button/index.vue";
 import "prismjs";
 import "prismjs/themes/prism.css";
 import { computed, ref } from "vue";

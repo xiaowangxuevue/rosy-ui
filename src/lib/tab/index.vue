@@ -9,7 +9,7 @@
   </script>
   <script lang="ts">
   export default {
-    name: "JwTab",
+    name: "RyTab",
   };
   </script>
   <style></style>

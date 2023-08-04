@@ -1,5 +1,40 @@
+
+<template>
+  <template v-if="modelValue">
+    <Teleport to="body"
+      ><div
+        class="rosy-dialog-overlay"
+        v-if="overlay"
+        @click="onOverlayClick"
+      ></div>
+      <div class="rosy-dialog">
+        <div class="rosy-dialog-wrapper">
+          <header>
+            <slot name="title">{{ title }}</slot>
+            <span class="rosy-dialog-close" @click="close"></span>
+          </header>
+          <main>
+            <slot>
+              <p>这是一条消息</p>
+            </slot>
+          </main>
+          <footer>
+            <slot name="footer">
+              <ry-button @click="cancel">Cancel</ry-button>
+              <ry-button theme="primary" @click="confirm">Primary</ry-button>
+            </slot>
+          </footer>
+        </div>
+      </div>
+    </Teleport>
+  </template>
+</template>
+
+
+
+
 <script setup lang="ts">
-import Button from "@/lib/button/index.vue";
+
 
 const props = defineProps({
   modelValue: {
@@ -57,40 +92,12 @@ const cancel = () => {
   }
 };
 </script>
+<script lang="ts">
+export default {
+  name: "RyDialog",
+};
+</script>
 
-
-
-
-<template>
-  <template v-if="modelValue">
-    <Teleport to="body"
-      ><div
-        class="rosy-dialog-overlay"
-        v-if="overlay"
-        @click="onOverlayClick"
-      ></div>
-      <div class="rosy-dialog">
-        <div class="rosy-dialog-wrapper">
-          <header>
-            <slot name="title">{{ title }}</slot>
-            <span class="rosy-dialog-close" @click="close"></span>
-          </header>
-          <main>
-            <slot>
-              <p>这是一条消息</p>
-            </slot>
-          </main>
-          <footer>
-            <slot name="footer">
-              <Button @click="cancel">Cancel</Button>
-              <Button theme="primary" @click="confirm">Primary</Button>
-            </slot>
-          </footer>
-        </div>
-      </div>
-    </Teleport>
-  </template>
-</template>
 
 
 
@@ -134,7 +141,7 @@ $primary-color: #36ad6a;
     > footer {
       padding: 20px;
       text-align: right;
-      .rosy-button + .rosy-button {
+      .rosy-Ry-Button + .rosy-Ry-Button {
         margin-left: 12px;
       }
     }

@@ -1,10 +1,10 @@
-import Dialog from "./index.vue";
+import RyDialog from "./index.vue";
 import { createApp, h } from "vue";
 
 export const openDialog = (
   options = {
     title: () => "标题",
-    content: "这是一条消息",
+    content: () => "这是一条消息",
     confirm: () => {},
     cancel: () => {},
   }
@@ -21,7 +21,7 @@ export const openDialog = (
   const app = createApp({
     render() {
       return h(
-        Dialog,
+        RyDialog,
         {
           modelValue: true,
           "onUpdate:modelValue": (newVisible: boolean) => {

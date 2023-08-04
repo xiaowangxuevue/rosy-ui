@@ -48,6 +48,12 @@ const classes = computed(() => {
 });
 </script>
 
+<script lang="ts">
+export default {
+  name: "RyButton",
+};
+</script>
+
 <style lang="scss" scoped>
 $h-default: 32px;
 $h-small: 20px;

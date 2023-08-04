@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { useSlots, computed, ref, onMounted, watchEffect, Ref } from "vue";
 
-import Tab from "../tab/index.vue";
+import RyTab from "../tab/index.vue";
 
 const props = defineProps({
   modelValue: {
@@ -50,8 +50,8 @@ const emits = defineEmits(["update:modelValue"]);
 
 solts?.forEach((tag) => {
   // @ts-ignore
-  if (tag.type.name !== Tab.name) {
-    throw new Error("Tabs子标签必须是Tab");
+  if (tag.type.name !== RyTab.name) {
+    throw new Error("RyTabs子标签必须是RyTab");
   }
 });
 
@@ -100,6 +100,12 @@ const getHeaderItemRef = (title) => {
   return (e) => {
     if (title === props.modelValue) selectedItem.value = e;
   };
+};
+</script>
+
+<script lang="ts">
+export default {
+  name: "RyTabs",
 };
 </script>
 

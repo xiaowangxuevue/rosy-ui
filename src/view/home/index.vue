@@ -6,8 +6,8 @@
       <h1>Rosy-Ui</h1>
       <p>一个 Vue 3 组件库</p>
       <div class="actions">
-        <Button @click="linkTo('github')">GitHub</Button>
-        <Button @click="linkTo('getStart')" theme="primary">开始使用</Button>
+        <ry-button @click="linkTo('github')">GitHub</ry-button>
+        <ry-button @click="linkTo('getStart')" theme="primary">开始使用</ry-button>
       </div>
     </div>
   </div>
@@ -40,7 +40,6 @@
 </template>
 <script setup>
 import Topnav from "@/components/Topnav.vue";
-import Button from "@/lib/button/index.vue";
 
 import { useRouter } from "vue-router";
 
