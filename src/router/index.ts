@@ -1,22 +1,18 @@
-import { h } from "vue";
-import { createWebHistory, createRouter,  createWebHashHistory, } from "vue-router";
+
+import { createRouter,  createWebHashHistory, } from "vue-router";
 import Home from "@/views/home/index.vue";
 import Doc from "@/views/doc/index.vue";
-import AvatarDoc from "@/views/doc/avatar/index.vue";
-import SwitchDoc from "@/views/doc/switch/index.vue";
-import ButtonDoc from "@/views/doc/button/index.vue";
-import DialogDoc from "@/views/doc/dialog/index.vue";
-import TabsDoc from "@/views/doc/tabs/index.vue";
-import Markdown from "@/components/Markdown.vue";
-// const md = (filename) => h(Markdown, { path: `../../markdown/${filename}.md`, key: filename });
-import { html as GetStarted } from "../../markdown/get-started.md";
-import { html as Install } from "../../markdown/install.md";
-import { html as Intro } from "../../markdown/intro.md";
-
-const md = (string) => h(Markdown, { content: string, key: string });
-
-
 const history = createWebHashHistory();
+
+import docRoutes from "./doc-router";
+let docRoutes1= [];
+
+for(let i in docRoutes) {
+  docRoutes1 = [...docRoutes1, ...docRoutes[i]]
+}
+
+console.log(docRoutes1,'docrou');
+
 const router = createRouter({
   history,
   routes: [
@@ -27,15 +23,7 @@ const router = createRouter({
       redirect: "/doc/intro",
       component: Doc,
       children: [
-        { path: "intro", component: md(Intro) },
-        { path: "install", component: md(Install) },
-        { path: "get-started", component: md(GetStarted) },
-        // { path: "biji", component: md("biji") },
-        { path: "switch", component: SwitchDoc },
-        { path: "button", component: ButtonDoc },
-        { path: "dialog", component: DialogDoc },
-        { path: "tabs", component: TabsDoc },
-        { path: "avatar", component: AvatarDoc },
+        ...docRoutes1,
       ],
     },
   ],

@@ -9,7 +9,7 @@ declare module '*.vue' {   //适用于以'.vue'拓展名结尾的所有文件
 declare type Nullable = T | null
 
 
-
+declare module "*.ts"
 
 
 

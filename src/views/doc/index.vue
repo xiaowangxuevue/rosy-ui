@@ -4,39 +4,13 @@
     <div class="content">
       <aside :style="asideStyle">
         <div class="menu">
-          <div class="menu-group">
-            <span class="menu-group-title text-overflow"> 文档 </span>
-            <router-link class="menu-item text-overflow" to="/doc/intro"
-              >介绍</router-link
-            >
-            <router-link class="menu-item text-overflow" to="/doc/install"
-              >安装</router-link
-            >
-            <router-link class="menu-item text-overflow" to="/doc/get-started"
-              >开始使用</router-link
-            >
-            <!-- <router-link class="menu-item text-overflow" to="/doc/biji"
-                >笔记</router-link
-              > -->
+          <div class="menu-group" v-for="(itemx, index) in docRoutes" :key="index">
+            <span class="menu-group-title text-overflow">{{ index }}{{ index !== "文档" ? `（${itemx.length}）` : "" }}</span>
+            <router-link v-for="(item, index) in itemx" class="menu-item text-overflow"
+              :to="`/doc/${item.path}`">{{ item.name }}</router-link>
+
           </div>
-          <div class="menu-group">
-            <span class="menu-group-title text-overflow"> 通用组件 (4) </span>
-            <router-link class="menu-item text-overflow" to="/doc/avatar"
-              >Avatar 头像</router-link
-            >
-            <router-link class="menu-item text-overflow" to="/doc/switch"
-              >Switch 开关</router-link
-            >
-            <router-link class="menu-item text-overflow" to="/doc/button"
-              >Button 按钮</router-link
-            >
-            <router-link class="menu-item text-overflow" to="/doc/dialog"
-              >Dialog 对话框</router-link
-            >
-            <router-link class="menu-item text-overflow" to="/doc/tabs"
-              >Tabs 标签页</router-link
-            >
-          </div>
+
         </div>
       </aside>
 
@@ -52,6 +26,9 @@
   </div>
 </template>
 <script setup lang="ts">
+import docRoutes from "@/router/doc-router.ts";
+console.log(docRoutes, 'baga');
+
 import Topnav from "@/components/Topnav.vue";
 import { inject, type Ref, computed } from "vue";
 const asideVisible = inject<Ref<boolean>>("asideVisible");
@@ -83,10 +60,12 @@ const mainStyle = computed(() => {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  > .nav {
+
+  >.nav {
     flex-shrink: 0;
   }
-  > .content {
+
+  >.content {
     display: flex;
     flex-grow: 1;
     position: absolute;
@@ -96,7 +75,8 @@ const mainStyle = computed(() => {
     width: 100%;
     transition: all 0.5 ease;
     z-index: 1;
-    > aside {
+
+    >aside {
       flex-shrink: 0;
       width: 272px;
       padding: 16px;
@@ -108,42 +88,50 @@ const mainStyle = computed(() => {
       top: 0;
       z-index: 10;
       transition: all 250ms ease;
+
       .menu,
       .menu-group {
         width: 100%;
       }
+
       .menu-group-title,
       .menu-item {
         display: flex;
         align-items: center;
         width: 100%;
       }
+
       .menu-group-title {
         height: 36px;
         padding-left: 32px;
         font-size: 13px;
         color: rgb(118, 124, 130);
         overflow: hidden;
+
         &:hover {
           cursor: default;
         }
       }
+
       .menu-item {
         height: 44px;
         padding-left: 48px;
         color: rgb(51, 54, 57);
         font-size: 14px;
+
         &:hover {
           color: #18a058 !important;
         }
       }
+
       .router-link-exact-active {
         color: #18a058 !important;
         background-color: #e7f5ee;
         border-radius: 3px;
       }
     }
-    > main {
+
+    >main {
       flex-grow: 1;
       box-sizing: border-box;
       padding: 32px 24px 100px 36px;
@@ -152,6 +140,7 @@ const mainStyle = computed(() => {
     }
   }
 }
+
 .toggle-button {
   width: 26px;
   height: 26px;
@@ -168,12 +157,13 @@ const mainStyle = computed(() => {
   background-color: #fff;
   box-shadow: 0 2px 4px 0px rgb(0 0 0 / 6%);
   transition: left 250ms ease, transform 0.1s ease;
-  > .icon {
+
+  >.icon {
     width: 12px;
     height: 12px;
   }
+
   @media (max-width: 500px) {
     display: none;
   }
-}
-</style>
+}</style>
