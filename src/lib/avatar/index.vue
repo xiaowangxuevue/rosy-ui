@@ -7,7 +7,7 @@
 
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref ,watch } from 'vue';
 const props = defineProps({
     size: {
         type: [String, Number],
@@ -59,6 +59,12 @@ const handleError = (e: Event) => {
     hasLoadError.value = true;
     emits("error", e);
 };
+
+
+watch(
+    () => props.src,
+    () => (hasLoadError.value = false)
+)
 </script>
 
 <script lang="ts">
