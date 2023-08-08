@@ -61,6 +61,12 @@ const handleError = (e: Event) => {
 };
 </script>
 
+<script lang="ts">
+export default {
+  name: "RyAvatar",
+};
+</script>
+
 <style lang="scss">
 $font-size: 14px;
 $small-size: 24px;
