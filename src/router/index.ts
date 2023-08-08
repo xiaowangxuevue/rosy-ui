@@ -1,11 +1,12 @@
 import { h } from "vue";
 import { createWebHistory, createRouter,  createWebHashHistory, } from "vue-router";
-import Home from "@/view/home/index.vue";
-import Doc from "@/view/doc/index.vue";
-import SwitchDoc from "@/view/doc/switch/index.vue";
-import ButtonDoc from "@/view/doc/button/index.vue";
-import DialogDoc from "@/view/doc/dialog/index.vue";
-import TabsDoc from "@/view/doc/tabs/index.vue";
+import Home from "@/views/home/index.vue";
+import Doc from "@/views/doc/index.vue";
+import AvatarDoc from "@/views/doc/avatar/index.vue";
+import SwitchDoc from "@/views/doc/switch/index.vue";
+import ButtonDoc from "@/views/doc/button/index.vue";
+import DialogDoc from "@/views/doc/dialog/index.vue";
+import TabsDoc from "@/views/doc/tabs/index.vue";
 import Markdown from "@/components/Markdown.vue";
 // const md = (filename) => h(Markdown, { path: `../../markdown/${filename}.md`, key: filename });
 import { html as GetStarted } from "../../markdown/get-started.md";
@@ -34,6 +35,7 @@ const router = createRouter({
         { path: "button", component: ButtonDoc },
         { path: "dialog", component: DialogDoc },
         { path: "tabs", component: TabsDoc },
+        { path: "avatar", component: AvatarDoc },
       ],
     },
   ],

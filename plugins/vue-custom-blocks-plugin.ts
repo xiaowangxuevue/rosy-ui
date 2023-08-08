@@ -8,12 +8,12 @@ const vitePluginVue = {
   transform(code, id) {
   
 
-    if (!/\/src\/view\/doc\/.*\.preview\.vue/.test(id) || !/vue&type=preview/.test(id)) {
+    if (!/\/src\/views\/doc\/.*\.preview\.vue/.test(id) || !/vue&type=preview/.test(id)) {
       return;
     }
 
 
-    let path = `.${id.match(/\/src\/view\/doc\/.*\.preview\.vue/)[0]}`;
+    let path = `.${id.match(/\/src\/views\/doc\/.*\.preview\.vue/)[0]}`;
     
     const file = fs.readFileSync(path).toString();
     const parsed = baseParse(file).children.find((n) => n.tag === "preview")
