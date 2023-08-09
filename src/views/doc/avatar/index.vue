@@ -11,7 +11,7 @@
       <Doc title="插槽" type="slot" :body="slotDoc" />
       <PrevAndNext
         :prev="{ path: '/doc/get-started', name: '快速使用' }"
-        :next="{ path: '/doc/switch', name: 'Switch开关' }"
+        :next="{ path: '/doc/button', name: 'Button按钮' }"
       />
     </div>
   </div>
@@ -28,7 +28,7 @@ import AvatarPreview4 from "./AvatarPreview4.preview.vue";
 
 const propsDoc = [
   [
-    "icon",
+    "size",
     "设置头像的大小",
     "number / string",
     "number / large / default /small",

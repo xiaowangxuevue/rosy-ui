@@ -37,7 +37,7 @@ const { type } = props
 const headerProps = computed(() => {
     switch (type) {
         case "prop":
-            return ["插槽名", "说明"];
+            return ["属性名", "说明"];
         case "slot":
             return ["插槽名", "说明"];
         case "event":
