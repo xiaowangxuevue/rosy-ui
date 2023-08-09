@@ -1,15 +1,15 @@
 <template>
-  <div class="demo">
+  <div class="preview-wrapper">
     <h2>
       {{ component.__sourceCodeTitle }}
       <ry-Button @click="hideCode" v-if="codeVisible">隐藏代码</ry-Button>
       <ry-Button @click="showCode" v-else>查看代码</ry-Button>
     </h2>
-    <div class="demo-component">
+    <div class="preview-wrapper-component">
       <component :is="component" />
     </div>
 
-    <div class="demo-code" v-if="codeVisible">
+    <div class="preview-wrapper-code" v-if="codeVisible">
       <pre class="language-html" v-html="html" />
     </div>
   </div>
@@ -43,7 +43,7 @@ const html = computed(() => {
 
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
-.demo {
+.preview-wrapper {
   border: 1px solid $border-color;
   margin: 16px 0px 32px;
   min-width: 300px;
