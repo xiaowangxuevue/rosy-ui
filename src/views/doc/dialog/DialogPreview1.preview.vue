@@ -2,7 +2,7 @@
 <template>
   <div>
     <ry-button theme="primary" @click="toggle">点击打开对话框</ry-button>
-    <ry-dialog v-model="visible" :cancel="cancel" :confirm="confirm"> </ry-dialog>
+    <ry-dialog v-model="visible" > </ry-dialog>
   </div>
 </template>
   
@@ -13,6 +13,5 @@ const visible = ref(false);
 const toggle = () => {
   visible.value = !visible.value;
 };
-const confirm = () => {};
-const cancel = () => {};
+
 </script>

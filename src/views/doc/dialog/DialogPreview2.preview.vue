@@ -8,6 +8,13 @@
 <script setup lang="ts">
 import { openDialog } from "@/lib/dialog/openDialog.ts";
 const toggle = () => {
-  openDialog();
+  openDialog({
+    overlay:true,
+    overlayClose:true,
+    title:() => "我是标题",
+    content: () => "我是内容",
+    confirm: () => {},
+    cancel: () => {},
+  });
 };
 </script>

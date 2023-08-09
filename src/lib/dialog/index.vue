@@ -20,8 +20,8 @@
           </main>
           <footer>
             <slot name="footer">
-              <ry-button @click="cancel">Cancel</ry-button>
-              <ry-button theme="primary" @click="confirm">Primary</ry-button>
+              <ry-button @click="cancel">取消</ry-button>
+              <ry-button theme="primary" @click="confirm">确定</ry-button>
             </slot>
           </footer>
         </div>
@@ -34,8 +34,8 @@
 
 
 <script setup lang="ts">
-
-
+import RyButton from "@/lib/button/index.vue";
+import { onMounted } from "vue";
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -50,7 +50,7 @@ const props = defineProps({
     type: String,
     default: "标题",
   },
-  closeOnClickOverlay: {
+  overlayClosable: {
     type: Boolean,
     default: true,
   },
@@ -62,7 +62,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue","onOverlayClick"]);
 
 const close = () => {
   console.log(132);
@@ -71,9 +71,10 @@ const close = () => {
 };
 
 const onOverlayClick = () => {
-  if (props.closeOnClickOverlay) {
+  if (props.overlayClosable) {
     close();
   }
+  emit("onOverlayClick");
 };
 
 const confirm = () => {

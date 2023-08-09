@@ -7,9 +7,11 @@ export const openDialog = (
     content: () => "这是一条消息",
     confirm: () => {},
     cancel: () => {},
+    overlay: true,
+    overlayClosable: true,
   }
 ) => {
-  const { title, content, confirm, cancel } = options;
+  const { title, content, confirm, cancel, overlay, overlayClosable } = options;
   const div = document.createElement("div");
   document.body.appendChild(div);
 
@@ -31,6 +33,8 @@ export const openDialog = (
           },    // onUpdate:modelValue 为属性名，对应到'Dialog'组件中的一个prop,这个函数作为该PROP的监听器，当'modelValue'发生变化，该函数将调用
           confirm,
           cancel,
+          overlay,
+          overlayClosable,
         },
         {
           title,
