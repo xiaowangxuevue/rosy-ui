@@ -1,8 +1,14 @@
 <template>
   <button class="rosy-button" :class="classes">
     <span v-if="loading" class="rosy-loadingIndicator"></span>
-    <slot name="icon"></slot>
-    <slot>{{ theme }}</slot>
+    <div v-if="iconPlacement === 'left' && solts.icon" class="slot-icon-left">
+      <slot name="icon"></slot>
+    </div>
+
+    <slot></slot>
+    <div v-if="iconPlacement === 'right' && solts.icon" class="slot-icon-right">
+      <slot name="icon"></slot>
+    </div>
   </button>
 </template>
   
@@ -10,7 +16,7 @@
   
   
 <script setup lang="ts">
-import { computed, useAttrs } from "vue";
+import { computed, useSlots } from "vue";
 const props = defineProps({
   theme: {
     type: String,
@@ -40,6 +46,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  iconPlacement:{
+    type:String,
+    default:"left"
+  }
 });
 const { theme,circle, dashed, size, round, disabled } = props;
 const classes = computed(() => {
@@ -52,6 +62,10 @@ const classes = computed(() => {
     [`is-disabled`]: disabled,
   };
 });
+
+const solts = useSlots();
+console.log(solts,'slots');
+
 </script>
 
 <script lang="ts">
@@ -61,8 +75,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$h-default: 32px;
-$h-small: 20px;
+$h-default: 40px;
+$h-small: 32px;
 $h-large: 48px;
 $white: #fff;
 $default-color: #333;
@@ -78,8 +92,9 @@ $green: #18a058;
 .rosy-button {
   box-sizing: border-box;
   height: $h-default;
+  font-size: 14px;
   background-color: #fff;
-  padding: 0 12px;
+  padding: 12px 20px;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -322,6 +337,12 @@ $green: #18a058;
     border-style: solid;
     border-width: 2px;
     animation: rosy-spin 1s infinite linear;
+  }
+  > .slot-icon-left {
+    margin-right: 5px;
+  }
+  > .slot-icon-right {
+    margin-left: 5px;
   }
 }
 @keyframes rosy-spin {

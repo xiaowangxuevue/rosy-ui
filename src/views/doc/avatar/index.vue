@@ -51,8 +51,8 @@ const slotDoc = [["default", "自定义头像展示内容"]];
 
 <style lang="scss">
 .avatar-doc-wrapper {
-  .rosy-avatar + .rosy-avatar {
-    margin-left: 8px;
+  .rosy-avatar  {
+    margin-right: 8px;
     margin-top: 8px;
   }
   .preview-wrapper {

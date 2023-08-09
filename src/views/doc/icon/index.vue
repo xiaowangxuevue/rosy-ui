@@ -48,8 +48,8 @@
   
   <style lang="scss">
   .icon-doc-wrapper {
-    .rosy-icon + .rosy-icon {
-      margin-left: 8px;
+    .rosy-icon {
+      margin-right: 8px;
       margin-top: 8px;
     }
     p {
