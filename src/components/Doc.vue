@@ -37,11 +37,11 @@ const { type } = props
 const headerProps = computed(() => {
     switch (type) {
         case "prop":
-            return ["属性名", "说明"];
+            return ["参数", "说明","类型","可选值","默认值"];
         case "slot":
             return ["插槽名", "说明"];
         case "event":
-            return ["事件名", "说明", "回调函数"];
+            return ["事件名", "说明", "回调参数"];
     }
 });
 

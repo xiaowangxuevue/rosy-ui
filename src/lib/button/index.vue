@@ -1,6 +1,7 @@
 <template>
   <button class="rosy-button" :class="classes">
     <span v-if="loading" class="rosy-loadingIndicator"></span>
+    <slot name="icon"></slot>
     <slot>{{ theme }}</slot>
   </button>
 </template>
@@ -27,6 +28,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  circle: {
+    type: Boolean,
+    default: false,
+  },
   disabled: {
     type: Boolean,
     default: false,
@@ -36,13 +41,14 @@ const props = defineProps({
     default: false,
   },
 });
-const { theme, dashed, size, round, disabled } = props;
+const { theme,circle, dashed, size, round, disabled } = props;
 const classes = computed(() => {
   return {
     [`rosy-theme-${theme}`]: theme,
     [`rosy-theme-dashed`]: dashed,
     [`rosy-size-${size}`]: size,
     [`is-round`]: round,
+    [`is-circle`]: circle,
     [`is-disabled`]: disabled,
   };
 });
@@ -90,6 +96,21 @@ $green: #18a058;
   }
   &::-moz-focus-inner {
     border: 0;
+  }
+  &.is-circle.rosy-button-default {
+    border-radius: 100%;
+    height: $h-default;
+    width: $h-default;
+  }
+  &.is-circle.rosy-button-small {
+    border-radius: 100%;
+    height: $h-small;
+    width: $h-small;
+  }
+  &.is-circle.rosy-button-large {
+    border-radius: 100%;
+    height: $h-large;
+    width: $h-large;
   }
   &.rosy-size-large {
     font-size: 24px;

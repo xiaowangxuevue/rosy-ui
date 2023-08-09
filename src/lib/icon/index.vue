@@ -21,5 +21,11 @@
     name: "RyIcon",
   };
   </script>
-  
-  <style scoped></style>
+<style lang="scss">
+.rosy-icon {
+  display: inline-block;
+  > span {
+    display: inline-block;
+  }
+}
+</style>
