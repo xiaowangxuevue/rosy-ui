@@ -8,7 +8,7 @@
   "module": "dist/lib/zrosy-ui.esm.js",
   "scripts": {
     "dev": "vite --host",
-    "build": "rollup -c",
+    "build": "vite build", 
     "preview": "vite preview"
   },
   "dependencies": {

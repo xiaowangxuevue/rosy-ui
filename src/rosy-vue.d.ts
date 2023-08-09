@@ -10,7 +10,7 @@ declare type Nullable = T | null
 
 
 declare module "*.ts"
-
+declare module "*.jpeg"
 
 
 

@@ -39,3 +39,5 @@ import "zrosy-ui/dist/lib/zrosy-ui.css";
   </div>
 </template>
 ```
+
+下一节：[Avatar 头像](#/doc/avatar)
