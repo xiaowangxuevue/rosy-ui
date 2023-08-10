@@ -1,5 +1,5 @@
 import { App } from "vue";
-
+import Ellipsis from "./ellipsis/index.vue";
 import RySwitch from "./switch/index.vue";
 import RyButton from "./button/index.vue";
 import RyTabs from "./tabs/index.vue";
@@ -9,9 +9,9 @@ import Avatar from "./avatar/index.vue";
 import Icon from "./icon/index.vue";
 import { openDialog } from "./dialog/openDialog";
 
-export { RySwitch,Icon , Avatar,RyButton, RyTabs, RyTab, RyDialog, openDialog };
+export { RySwitch,Icon , Ellipsis,Avatar,RyButton, RyTabs, RyTab, RyDialog, openDialog };
 
-const components = [RyButton,Icon , Avatar,RySwitch, RyTabs, RyTab, RyDialog];
+const components = [RyButton,Icon ,Ellipsis, Avatar,RySwitch, RyTabs, RyTab, RyDialog];
 
 export function registerRyUi(app: App): void {
   for (const component of components) {
