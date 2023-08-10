@@ -9,6 +9,7 @@ const md = (string) => h(Markdown, { content: string, key: string });
 const IntroDoc = md(Intro);
 const GetStartedDoc = md(GetStarted);
 const InstallDoc = md(Install);
+import RadioDoc from "@/views/doc/radio/index.vue";
 import LinkDoc from "@/views/doc/link/index.vue"
 import EllipsisDoc from "@/views/doc/ellipsis/index.vue";
 import SwitchDoc from "@/views/doc/switch/index.vue";
@@ -24,14 +25,14 @@ export default {
         { path: "get-started", component: GetStartedDoc, name: "快速使用" },
     ],
     通用组件: [
-        
+
         { path: "avatar", component: AvatarDoc, name: "头像 Avatar" },
         { path: "button", component: ButtonDoc, name: "按钮 Button" },
         { path: "ellipsis", component: EllipsisDoc, name: "文本省略 Ellipsis" },
         { path: "icon", component: IconDoc, name: "图标 Icon" },
         { path: "link", component: LinkDoc, name: "链接 Link" },
     ],
-    数据录入组件: [{ path: "switch", component: SwitchDoc, name: "开关 Switch" }],
+    数据录入组件: [{ path: "switch", component: SwitchDoc, name: "开关 Switch" }, { path: "radio", component: RadioDoc, name: "单选框 Radio" },],
     反馈组件: [{ path: "dialog", component: DialogDoc, name: "对话框 Dialog" }],
     导航组件: [{ path: "tabs", component: TabsDoc, name: "标签页 Tabs" }],
 };
