@@ -1,11 +1,16 @@
-<preview>单选框组</preview>
+<preview>是否有边框</preview>
 <template>
-  <ry-radio-group v-model="radio" size="large">
-    <ry-radio label="1">选项 A</ry-radio>
-    <ry-radio label="2">选项 B</ry-radio>
-    <ry-radio label="3">选项 C</ry-radio>
-    <ry-radio label="4" disabled>选项 C</ry-radio>
-  </ry-radio-group>
+  <ry-radio v-model="radio" label="1" size="small" border>选项1</ry-radio>
+  <ry-radio v-model="radio" label="2" border>选项2</ry-radio>
+  <ry-radio v-model="radio" label="3" size="large" border>选项3</ry-radio>
+
+  <ry-radio v-model="radio" label="1" size="small" border disabled
+    >选项1</ry-radio
+  >
+  <ry-radio v-model="radio" label="2" border disabled>选项2</ry-radio>
+  <ry-radio v-model="radio" label="3" size="large" border disabled
+    >选项3</ry-radio
+  >
 </template>
 
 <script setup lang="ts">
