@@ -12,6 +12,7 @@ const emits = defineEmits(radioGroupEmits);
 
 const changeEvent = (value) => {
   emits("update:modelValue", value);
+  emits("change", value);
 };
 
 

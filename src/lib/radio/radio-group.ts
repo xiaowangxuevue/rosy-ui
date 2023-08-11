@@ -9,4 +9,4 @@ export const radioGroupProps = {
     border: Boolean,
   };
   
-  export const radioGroupEmits = ["update:modelValue"];
+  export const radioGroupEmits = ["update:modelValue","change"];
