@@ -8,7 +8,7 @@ import RyDialog from "./dialog/index.vue";
 import Avatar from "./avatar/index.vue";
 import Icon from "./icon/index.vue";
 import Link from "./link/index.vue"
-import RyRadio from "./radio/index.vue"
+import RyRadio from "./radio/radio.vue"
 import { openDialog } from "./dialog/openDialog";
 
 export { RySwitch,  RyRadio,Icon,Ellipsis, Avatar, RyButton, RyTabs, RyTab, RyDialog, openDialog };
