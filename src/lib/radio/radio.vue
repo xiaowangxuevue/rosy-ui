@@ -21,39 +21,13 @@
   </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-const props = defineProps({
-  modelValue: {
-    type: [String, Number, Boolean],
-    default: "",
-  },
-  label: {
-    type: [String, Number, Boolean],
-    default: "",
-  },
-  disabled: Boolean,
-  size: String,
-  name: {
-    type: String,
-    default: "",
-  },
-  border: Boolean,
-});
-
-console.log(props,'props');
-
-const emits = defineEmits(["update:modelValue"]);
-const classes = computed(() => ({
-  "is-checked": props.modelValue === props.label,
-  "is-disabled": props.disabled,
-  [`rosy-radio-${props.size}`]: props.size,
-  "is-bordered": props.border,
-}));
+import { useRadio, radioProps, radioEmits } from "./radio";
+const props = defineProps(radioProps);
+const emits = defineEmits(radioEmits);
+const { modelValue, label, size, disabled, classes } = useRadio(props, emits);
 const handleChange = () => {
-  if (!props.disabled) {
-    emits("update:modelValue", props.label);
-    console.log(props.modelValue);
-    
+  if (!disabled.value) {
+    modelValue.value = props.label;
   }
 };
 </script>
