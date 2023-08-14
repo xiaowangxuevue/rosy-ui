@@ -51,7 +51,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 50px;
-    color: #36ad6a;
+    color: #6366F1;
     cursor: pointer;
   }
   </style>

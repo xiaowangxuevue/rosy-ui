@@ -55,5 +55,11 @@
     p {
       margin-bottom: 30px;
     }
+    >  h1{
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
   }
   </style>

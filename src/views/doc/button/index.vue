@@ -52,5 +52,13 @@ const slotDoc = [["default", "自定义默认内容"],["icon", "按钮的图标"
 .rosy-button {
   margin-right: 8px;
   margin-top: 8px;
+}
+.button-doc-wrapper{
+  >h1{
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 700;
   }
+}
+
 </style>

@@ -2,8 +2,8 @@
   <div class="preview-wrapper">
     <h2>
       {{ component.__sourceCodeTitle }}
-      <ry-Button @click="hideCode" v-if="codeVisible">隐藏代码</ry-Button>
-      <ry-Button @click="showCode" v-else>查看代码</ry-Button>
+      <ry-Button class="preview-wrapper-themecolor" @click="hideCode" v-if="codeVisible">隐藏代码</ry-Button>
+      <ry-Button class="preview-wrapper-themecolor" @click="showCode" v-else>查看代码</ry-Button>
     </h2>
     <div class="preview-wrapper-component">
       <component :is="component" />
@@ -44,14 +44,21 @@ const html = computed(() => {
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
 .preview-wrapper {
+  background-color: #fff;
   border: 1px solid $border-color;
+  border-radius: 0.5rem;
   margin: 16px 0px 32px;
   min-width: 300px;
+  &-themecolor {
+    background-color: #818CF8;
+    color: #fff;
+  }
   > h2 {
     font-size: 20px;
     padding: 8px 16px;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 2px dashed $border-color;
     display: flex;
+    color: #818CF8;
     justify-content: space-between;
   }
   &-component {

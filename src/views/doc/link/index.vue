@@ -47,5 +47,11 @@ const slotDoc = [["default", "自定义默认内容"]];
     .rosy-link {
       margin-right: 10px;
     }
+   > h1{
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
   }
   </style>

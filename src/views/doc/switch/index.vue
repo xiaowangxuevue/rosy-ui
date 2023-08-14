@@ -28,4 +28,11 @@ const propsDoc = [
 
 </script>
 
-<style lang="scss" />
+<style lang="scss" >
+  h1{
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+</style> 

@@ -55,4 +55,10 @@ const radioGroupEventDoc = [
 const radioGroupSlotDoc = [["default", "自定义默认内容", "Radio"]];
 </script>
 
-<style scoped></style>
+<style scoped>
+  h1{
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+</style>

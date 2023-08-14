@@ -44,4 +44,9 @@ const eventDoc = [
 ];
 </script>
 
-<style scoped></style>
+<style scoped>
+  h1{
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }</style>

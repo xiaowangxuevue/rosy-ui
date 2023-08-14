@@ -58,5 +58,13 @@ const slotDoc = [["default", "自定义头像展示内容"]];
   .preview-wrapper {
     width: 80%;
   }
+  >h1{
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
 }
 </style>
+
+
+

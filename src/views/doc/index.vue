@@ -5,9 +5,11 @@
       <aside :style="asideStyle">
         <div class="menu">
           <div class="menu-group" v-for="(itemx, index) in docRoutes" :key="index">
+
             <span class="menu-group-title text-overflow">{{ index }}{{ index !== "文档" ? `（${itemx.length}）` : "" }}</span>
-            <router-link v-for="(item, index) in itemx" class="menu-item text-overflow"
-              :to="`/doc/${item.path}`">{{ item.name }}</router-link>
+            <router-link v-for="(item, index) in itemx" class="menu-item text-overflow" :to="`/doc/${item.path}`">
+       
+              {{item.name }}</router-link>
 
           </div>
 
@@ -27,7 +29,6 @@
 </template>
 <script setup lang="ts">
 import docRoutes from "@/router/doc-router.ts";
-console.log(docRoutes, 'baga');
 
 import Topnav from "@/components/Topnav.vue";
 import { inject, type Ref, computed } from "vue";
@@ -37,11 +38,11 @@ const toggleAside = () => {
   asideVisible.value = !asideVisible.value;
 };
 const asideStyle = computed(() => {
-  return { left: asideVisible.value ? "0px" : "-272px" };
+  return { left: asideVisible.value ? "0px" : "-252px" };
 });
 const toggleAsidStyle = computed(() => {
   return {
-    left: asideVisible.value ? "272px" : "0px",
+    left: asideVisible.value ? "252px" : "0px",
     transform: asideVisible.value
       ? "rotate(180deg) translateX(50%)"
       : "rotate(0deg) translateX(50%)",
@@ -78,20 +79,22 @@ const mainStyle = computed(() => {
 
     >aside {
       flex-shrink: 0;
-      width: 272px;
-      padding: 16px;
+      width: 252px;
+      padding: 16px 0;
       height: 100%;
-      background-color: #fff;
+      background-color: rgb(249, 250, 251);
       border-right: 1px solid #efeff5;
       position: absolute;
       left: 0;
       top: 0;
       z-index: 10;
       transition: all 250ms ease;
+      overflow-y: auto;
 
       .menu,
       .menu-group {
         width: 100%;
+
       }
 
       .menu-group-title,
@@ -99,14 +102,22 @@ const mainStyle = computed(() => {
         display: flex;
         align-items: center;
         width: 100%;
+        margin-top: 1rem;
+
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: #e5e7eb;
+
       }
 
       .menu-group-title {
         height: 36px;
-        padding-left: 32px;
+        padding-left: 22px;
         font-size: 13px;
-        color: rgb(118, 124, 130);
         overflow: hidden;
+        color: rgba(156,163,175,0.5);
+        font-weight: 600;
 
         &:hover {
           cursor: default;
@@ -117,17 +128,19 @@ const mainStyle = computed(() => {
         height: 44px;
         padding-left: 48px;
         color: rgb(51, 54, 57);
-        font-size: 14px;
+        font-size: 18px;
 
         &:hover {
-          color: #18a058 !important;
+          color: rgb(243, 244, 246) !important;
+          background-color: rgb(99, 102, 241);
+          border-left: 4px solid rgb(75, 85, 99);
         }
       }
 
       .router-link-exact-active {
-        color: #18a058 !important;
-        background-color: #e7f5ee;
-        border-radius: 3px;
+        color: rgb(243, 244, 246) !important;
+        background-color: rgb(99, 102, 241);
+        border-left: 4px solid rgb(75, 85, 99);
       }
     }
 
@@ -137,8 +150,11 @@ const mainStyle = computed(() => {
       padding: 32px 24px 100px 36px;
       transition: all 250ms ease;
       overflow: auto;
+      background-color: rgba(243, 244, 246, 0.7);
+
       .preview-wrapper {
         width: 80%;
+
         @media (max-width: 500px) {
           width: 100%;
         }
@@ -157,7 +173,7 @@ const mainStyle = computed(() => {
   cursor: pointer;
   border: 1px solid rgb(239, 239, 245);
   position: absolute;
-  left: 272px;
+  left: 252px;
   top: 240px;
   z-index: 11;
   background-color: #fff;
@@ -172,4 +188,5 @@ const mainStyle = computed(() => {
   @media (max-width: 500px) {
     display: none;
   }
-}</style>
+}
+</style>

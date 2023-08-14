@@ -1,13 +1,13 @@
 <preview>基础用法</preview>
 <template>
   <ry-icon>
-    <BatteryFull />
+    <FlashOutline />
   </ry-icon>
   <ry-icon color="#4ad361">
-    <BatteryFull />
+    <FlashOutline />
   </ry-icon>
 </template>
 
 <script setup lang="ts">
-import { BatteryFull } from "@vicons/ionicons5";
+import { FlashOutline } from "@vicons/ionicons5";
 </script>

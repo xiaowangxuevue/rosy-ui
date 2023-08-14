@@ -3,9 +3,8 @@
   <div class="topnavAndBanner">
     <Topnav :toggleMenuButton="false" />
     <div class="banner">
-      <h1>Rosy-Ui</h1>
+      <h1>Rycss UI</h1>
       <p>一个 Vue 3 组件库</p>
-      <p>有点儿意思~</p>
       <div class="actions">
         <ry-button @click="linkTo('github')">GitHub</ry-button>
         <ry-button @click="linkTo('getStart')" theme="primary"
