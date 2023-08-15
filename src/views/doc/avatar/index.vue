@@ -55,9 +55,6 @@ const slotDoc = [["default", "自定义头像展示内容"]];
     margin-right: 8px;
     margin-top: 8px;
   }
-  .preview-wrapper {
-    width: 80%;
-  }
   >h1{
     color: #000;
     font-size: 1.8rem;

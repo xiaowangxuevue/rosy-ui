@@ -67,7 +67,7 @@ table {
     border-collapse: collapse;
 
     thead {
-        background-color: rgb(249, 250, 251);
+        background-color: rgba(249,250,251,0.9);
 
         th {
           
@@ -79,7 +79,7 @@ table {
     th {
         white-space: normal;
         padding: .875rem .75rem;
-        font-size: .875rem;
+       
         line-height: 1.25rem;
         color: rgb(17, 24, 39);
     }

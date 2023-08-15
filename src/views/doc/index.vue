@@ -125,10 +125,11 @@ const mainStyle = computed(() => {
       }
 
       .menu-item {
-        height: 44px;
-        padding-left: 48px;
+        height: 40px;
+        padding-left: 44px;
         color: rgb(51, 54, 57);
-        font-size: 18px;
+        font-size: 16px;
+        border-left: 4px solid rgba(75, 85, 99,0.1);
 
         &:hover {
           color: rgb(243, 244, 246) !important;

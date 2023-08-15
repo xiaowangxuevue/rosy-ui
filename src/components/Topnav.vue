@@ -4,83 +4,91 @@
       <use xlink:href="#icon-list"></use>
     </svg>
     <div class="logo" @click="getHome">
-      <!-- <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-leaf"></use>
-      </svg> -->
-      <!-- <span>rosy UI</span> -->
-      <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-   
-      <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-      <svg width="800px" height="800px" viewBox="0 0 300 300" id="footstep" version="1.1" xml:space="preserve"
-        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
-        <g>
-
-          <path
-            d="   M70,222c0,24.3,19.7,44,44,44c17.748,0,23.996-11.874,40-11.874S176.252,266,194,266c24.3,0,44-19.7,44-44   c0-20.156-13.552-37.146-32.044-42.356C205.984,179.099,206,178.55,206,178c0-24.3-19.772-44-52-44s-52,19.7-52,44   c0,0.55,0.016,1.099,0.044,1.644C83.552,184.854,70,201.844,70,222z"
-            style="fill-rule:evenodd;clip-rule:evenodd;fill:#FBAD4A;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" />
-
-          <path
-            d="   M129.777,113.978c25.827-11.579,22.258-26.188,14.647-44.627c-7.611-18.439-27.727-32.036-43.425-25.828   c-9.757,3.859-12.296,10.849-13.428,22.748c-1.132,11.899-2.882,18.583,0,25.561C95.182,110.271,103.955,125.556,129.777,113.978z"
-            style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFDD95;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" />
-
-          <path
-            d="   M182.222,113.978c-25.827-11.579-22.258-26.188-14.647-44.627c7.612-18.439,27.728-32.036,43.425-25.828   c9.757,3.859,12.296,10.849,13.428,22.748c1.132,11.899,2.882,18.583,0,25.561C216.817,110.271,208.045,125.556,182.222,113.978z"
-            style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFDD95;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" />
-
-          <ellipse cx="68" cy="140" rx="24.466" ry="34.657"
-            style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFDD95;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;"
-            transform="matrix(0.7071 -0.7071 0.7071 0.7071 -79.076 89.0817)" />
-
-          <path
-            d="   M214.683,164.035c8.889,9.54,27.425,7.409,41.407-4.76c13.983-12.17,18.111-29.769,9.226-39.309   c-8.885-9.54-27.425-7.409-41.407,4.761C209.93,136.895,205.798,154.494,214.683,164.035z"
-            style="fill-rule:evenodd;clip-rule:evenodd;fill:#FFDD95;stroke:#000000;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" />
-
-        </g>
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-        <g />
-
-      </svg>
-       <span>Rycss UI</span>
+      <span>Aurora UI</span>
+      <ry-icon style= "margin-top:-10px" size="40px">
+        <svg viewBox="0 0 256 226" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+          <g>
+            <path d="M155.893921,58.3659843 L100.061732,58.3659843 L128.023181,106.513134 L155.893921,58.3659843"
+              fill="#63C4B1"></path>
+            <path d="M94.6131654,61.480315 L66.7242835,109.712126 L122.568567,109.712126 L94.6131654,61.480315"
+              fill="#63C4B1"></path>
+            <path d="M122.567559,115.980094 L66.7222677,115.980094 L94.6111496,164.246173 L122.567559,115.980094"
+              fill="#63C4B1"></path>
+            <path d="M61.3634016,119.100472 L33.3142677,167.320189 L89.240189,167.320189 L61.3634016,119.100472"
+              fill="#63C4B1"></path>
+            <path d="M161.259843,61.480315 L133.39515,109.712126 L189.230362,109.712126 L161.259843,61.480315"
+              fill="#63C4B1"></path>
+            <path d="M189.232378,115.980094 L133.393134,115.980094 L161.26085,164.246173 L189.232378,115.980094"
+              fill="#63C4B1"></path>
+            <path d="M128.022173,3.79464567 L100.063748,52.0970079 L155.892913,52.0970079 L128.022173,3.79464567"
+              fill="#63C4B1"></path>
+            <path d="M89.2411969,173.600252 L33.3142677,173.600252 L61.3644094,222.181795 L89.2411969,173.600252"
+              fill="#63C4B1"></path>
+            <path d="M194.598299,119.100472 L166.648945,167.320189 L222.556724,167.320189 L194.598299,119.100472"
+              fill="#63C4B1"></path>
+            <path d="M222.55874,173.600252 L166.649953,173.600252 L194.599307,222.181795 L222.55874,173.600252"
+              fill="#63C4B1"></path>
+            <path d="M128.022173,119.100472 L100.063748,167.320189 L155.892913,167.320189 L128.022173,119.100472"
+              fill="#FFFFFF"></path>
+            <path d="M89.2411969,58.3659843 L33.3142677,58.3659843 L61.3644094,106.513134 L89.2411969,58.3659843"
+              fill="#FFFFFF"></path>
+            <path d="M0.065511811,109.711118 L55.8916535,109.711118 L27.9422992,61.4793071 L0.065511811,109.711118"
+              fill="#FFFFFF"></path>
+            <path d="M27.9422992,164.247181 L55.8916535,115.981102 L0.065511811,115.981102 L27.9422992,164.247181"
+              fill="#FFFFFF"></path>
+            <path d="M227.918614,61.480315 L200.059969,109.712126 L255.877039,109.712126 L227.918614,61.480315"
+              fill="#FFFFFF"></path>
+            <path d="M255.879055,115.980094 L200.058961,115.980094 L227.92063,164.246173 L255.879055,115.980094"
+              fill="#FFFFFF"></path>
+            <path d="M189.232378,0.669228346 L133.393134,0.669228346 L161.26085,48.8466142 L189.232378,0.669228346"
+              fill="#FFFFFF"></path>
+            <path d="M155.893921,173.600252 L99.9730394,173.600252 L128.023181,222.181795 L155.893921,173.600252"
+              fill="#FFFFFF"></path>
+            <path d="M161.259843,176.708535 L133.39515,225.36063 L189.230362,225.36063 L161.259843,176.708535"
+              fill="#FFFFFF"></path>
+            <path d="M122.567559,0.669228346 L66.7222677,0.669228346 L94.6111496,48.8466142 L122.567559,0.669228346"
+              fill="#FFFFFF"></path>
+            <path d="M61.3634016,3.79464567 L33.3142677,52.0970079 L89.240189,52.0970079 L61.3634016,3.79464567"
+              fill="#FFFFFF"></path>
+            <path d="M194.598299,3.79464567 L166.648945,52.0970079 L222.556724,52.0970079 L194.598299,3.79464567"
+              fill="#FFFFFF"></path>
+            <path d="M222.55874,58.3659843 L166.649953,58.3659843 L194.599307,106.513134 L222.55874,58.3659843"
+              fill="#FFFFFF"></path>
+            <path d="M94.6131654,176.708535 L66.7242835,225.36063 L122.568567,225.36063 L94.6131654,176.708535"
+              fill="#FFFFFF"></path>
+          </g>
+        </svg>
+      </ry-icon>
+ 
     </div>
     <div class="menu">
-      <router-link exact to="/home">首页</router-link>
-      <router-link to="/doc">文档</router-link>
-      <a href="" target="_blank">GitHub</a>
+      <router-link exact to="/home">
+        <div class="menu-link hid">
+
+          Home
+        </div>
+      </router-link>
+      <router-link to="/doc">
+        <div class="menu-link hid">
+
+          Doc
+        </div>
+      </router-link>
+      <a>
+        <div class="menu-link">
+          <ry-icon :size="25" style="margin-top: 22px;">
+            <LogoGithub />
+          </ry-icon>
+        </div>
+      </a>
       <span>0.0.9</span>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-// import { CssFilled } from "@vicons/all";
+
+import { LogoGithub } from "@vicons/ionicons5";
 import { type Ref, inject } from "vue";
 import { useRouter } from "vue-router";
 
@@ -118,7 +126,7 @@ const toggleAside = () => {
   align-items: center;
   border-bottom: solid 4px rgba(79, 70, 229);
   position: fixed;
-  position: fixed;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
@@ -131,17 +139,17 @@ const toggleAside = () => {
     cursor: pointer;
 
     >svg {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
     }
 
     span {
-      margin-left: 20px;
-      color:  #6366F1;
+      margin-left: 10px;
+      color: #6366F1;
       cursor: pointer;
-      font-size: 22px;
-      line-height: 28px;
-      height: 28px;
+      font-size: 30px;
+      line-height: 30px;
+      height: 30px;
       font-weight: 700;
     }
 
@@ -150,9 +158,14 @@ const toggleAside = () => {
     }
   }
 
+
   .menu {
+    display: flex;
+    align-items: center;
+
     a {
-      display: inline-block;
+      display: flex;
+      align-items: center;
       text-decoration: none;
       padding: 0 20px;
       height: 63px;
@@ -163,6 +176,10 @@ const toggleAside = () => {
       &:active {
         color: #6366F1;
       }
+
+
+
+
     }
 
     .router-link-active {
@@ -184,8 +201,13 @@ const toggleAside = () => {
   }
 
   @media (max-width: 500px) {
-    >.menu {
+    > span {
       display: none;
+    }
+    >.menu {
+
+      display: none;
+
     }
 
     >.logo {
