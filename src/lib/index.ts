@@ -11,11 +11,12 @@ import Link from "./link/index.vue"
 import RyRadio from "./radio/radio.vue"
 import RyRadioGroup from "./radio/radio-group.vue";
 import RyCheckbox from "./checkbox/checkbox.vue";
+import RyCheckboxGroup from "./checkbox/checkbox-group.vue";
 import { openDialog } from "./dialog/openDialog";
 
-export { RySwitch,RyCheckbox,RyRadioGroup,  RyRadio,Icon,Ellipsis, Avatar, RyButton, RyTabs, RyTab, RyDialog, openDialog };
+export { RySwitch,RyCheckbox,RyCheckboxGroup,RyRadioGroup,  RyRadio,Icon,Ellipsis, Avatar, RyButton, RyTabs, RyTab, RyDialog, openDialog };
 
-const components = [RyButton,RyCheckbox,RyRadioGroup, RyRadio, Icon, Link, Ellipsis, Avatar, RySwitch, RyTabs, RyTab, RyDialog];
+const components = [RyButton,RyCheckboxGroup,RyCheckbox,RyRadioGroup, RyRadio, Icon, Link, Ellipsis, Avatar, RySwitch, RyTabs, RyTab, RyDialog];
 
 export function registerRyUi(app: App): void {
   for (const component of components) {

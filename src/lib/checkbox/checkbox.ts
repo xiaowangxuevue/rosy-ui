@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed ,inject} from 'vue'
 export const checkboxProps = {
     modelValue: {
         type: Boolean,
@@ -23,20 +23,32 @@ export const checkboxProps = {
 }
 
 
-export const checkboxEmits = ["update:modelValue"];
+export const checkboxEmits = ["update:modelValue",'change'];
 
 export const useCheckbox = (props, emits) => {
+
+   const checkboxGroupProps = inject("checkboxGroupKey",undefined);
+
+   const isGroup = computed(() => !!checkboxGroupProps)
+
     const label = computed(() => props.label);
-    const modelValue = computed({
+    const modelValue = computed<String[] | Boolean>({
         get() {
-            return props.modelValue
+            return isGroup.value ? checkboxGroupProps.modelValue : props.modelValue;
         },
-        set(val) {
-            emits("update:modelValue", val);
-        }
+        set(value) {
+            if (isGroup.value) {
+                checkboxGroupProps.changeEvent(value);
+              } else {
+                emits("update:modelValue", value);
+                emits("change", value);
+              }
+        },
     });
 
-    const size = computed(() => props)
+    const size = computed(() =>
+    props.size ? props.size : checkboxGroupProps?.size
+  );
     const iconSize = computed(() => {
         if (props.iconSize) {
             return props.iconSize
@@ -49,20 +61,22 @@ export const useCheckbox = (props, emits) => {
         }
     })
 
-    const disabled = computed(() => {
-        return props.disabled;
-    });
+    const disabled = computed(
+        () => props.disabled || checkboxGroupProps?.disabled
+      );
 
     const iconColor = computed(() => {
         if (disabled.value) {
-            return '#c2c2c2'
+            return modelValue.value ? "#c2c2c2" : "#fff";
         } else {
             return '#fff'
         }
     })
 
     const classes = computed(() => ({
-        "is-checked": modelValue.value,
+        "is-checked": isGroup.value
+        ? modelValue.value.indexOf(label.value) > -1
+        : modelValue.value,
         [`rosy-checkbox-${size.value}`]: size.value,
         "is-disabled": disabled.value
     }));
@@ -73,6 +87,7 @@ export const useCheckbox = (props, emits) => {
         size,
         iconSize,
         disabled,
-        iconColor
+        iconColor,
+        isGroup,
       };
 }

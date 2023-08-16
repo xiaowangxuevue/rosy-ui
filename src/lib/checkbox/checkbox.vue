@@ -1,5 +1,5 @@
 <template>
-    <label class="rosy-checkbox" :class="classes" @click="handleChange">
+    <label class="rosy-checkbox" tabindex="0" :class="classes" @click="handleChange">
         <span class="rosy-checkbox-input" :class="classes"> </span>
         <ry-icon :color="iconColor" :size="iconSize">
         <Check />
@@ -16,15 +16,26 @@ import { checkboxProps, checkboxEmits, useCheckbox } from "./checkbox";
 const props = defineProps(checkboxProps);
 const emits = defineEmits(checkboxEmits);
 
-const { modelValue, label, classes, iconSize, disabled, iconColor } = useCheckbox(
+const { modelValue, label, classes, iconSize, disabled, iconColor,isGroup } = useCheckbox(
   props,
   emits
 );
 
 const handleChange = () => {
-  modelValue.value = !modelValue.value;
-};
-
+  if (!disabled.value) {
+    if (isGroup.value) {
+      const index = modelValue.value.indexOf(label.value);
+      if (index > -1) {
+        modelValue.value.splice(index, 1);
+      } else {
+        modelValue.value.push(label.value);
+      }
+      modelValue.value = [...modelValue.value];
+    } else {
+      modelValue.value = !modelValue.value;
+    }
+  }
+}
 
 console.log(classes,'1');
 
@@ -57,6 +68,13 @@ $small-height: 24px;
   }
   &.rosy-small-size {
     height: $small-height;
+  }
+  &:not(.is-disabled):hover .rosy-checkbox-input {
+    border: 1px solid #18a058;
+  }
+  &:not(.is-disabled):focus .rosy-checkbox-input {
+    box-shadow: 0 0 0 2px rgba(24, 160, 88, 0.3);
+    border: 1px solid #18a058;
   }
   > .rosy-checkbox-input {
     display: inline-flex;
@@ -97,6 +115,9 @@ $small-height: 24px;
     }
     &.rosy-checkbox-small {
       font-size: $small-size;
+    }
+    &.is-disabled {
+      color: #c2c2c2ff;
     }
   }
 }
