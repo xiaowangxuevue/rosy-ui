@@ -1,6 +1,6 @@
 <template>
     <div class="checkbox-doc-wrapper">
-        <h1>Checkbox 复选框</h1>
+        <h1>Checkbox </h1>
         <div class="preview-wrapper">
             <Preview :component="CheckboxPreview1" />
             <PrevAndNext :prev="{ path: '/doc/link', name: 'Link 链接' }"
