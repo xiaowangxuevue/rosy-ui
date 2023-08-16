@@ -82,7 +82,7 @@
           </ry-icon>
         </div>
       </a>
-      <span>0.0.9</span>
+      <span>0.0.10</span>
     </div>
   </div>
 </template>
