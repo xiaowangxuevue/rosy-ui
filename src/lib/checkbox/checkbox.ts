@@ -1,4 +1,4 @@
-import { computed ,inject} from 'vue'
+import { computed, inject } from 'vue'
 export const checkboxProps = {
     modelValue: {
         type: Boolean,
@@ -19,17 +19,25 @@ export const checkboxProps = {
     disabled: {
         type: Boolean,
         default: false,
-    }
+    },
+    indeterminate: {
+        type: Boolean,
+        default: false,
+    },
+    border: {
+        type: Boolean,
+        default: false,
+    },
 }
 
 
-export const checkboxEmits = ["update:modelValue",'change'];
+export const checkboxEmits = ["update:modelValue", 'change'];
 
 export const useCheckbox = (props, emits) => {
 
-   const checkboxGroupProps = inject("checkboxGroupKey",undefined);
+    const checkboxGroupProps = inject("checkboxGroupKey", undefined);
 
-   const isGroup = computed(() => !!checkboxGroupProps)
+    const isGroup = computed(() => !!checkboxGroupProps)
 
     const label = computed(() => props.label);
     const modelValue = computed<String[] | Boolean>({
@@ -39,16 +47,16 @@ export const useCheckbox = (props, emits) => {
         set(value) {
             if (isGroup.value) {
                 checkboxGroupProps.changeEvent(value);
-              } else {
+            } else {
                 emits("update:modelValue", value);
                 emits("change", value);
-              }
+            }
         },
     });
 
     const size = computed(() =>
-    props.size ? props.size : checkboxGroupProps?.size
-  );
+        props.size ? props.size : checkboxGroupProps?.size
+    );
     const iconSize = computed(() => {
         if (props.iconSize) {
             return props.iconSize
@@ -63,22 +71,29 @@ export const useCheckbox = (props, emits) => {
 
     const disabled = computed(
         () => props.disabled || checkboxGroupProps?.disabled
-      );
+    );
 
     const iconColor = computed(() => {
         if (disabled.value) {
-            return modelValue.value ? "#c2c2c2" : "#fff";
+            if (!isGroup.value) {
+                return modelValue.value ? "#c2c2c2" : "#fff";
+            } else {
+                return modelValue.value.indexOf(label.value) > -1 ? "#c2c2c2" : "#fff";
+            }
         } else {
-            return '#fff'
+            return "#fff";
         }
-    })
-
+    });
+    const indeterminate = computed(() => props.indeterminate);
+    const border = computed(() => props.border);
     const classes = computed(() => ({
         "is-checked": isGroup.value
-        ? modelValue.value.indexOf(label.value) > -1
-        : modelValue.value,
+            ? modelValue.value.indexOf(label.value) > -1 && !indeterminate.value
+            : modelValue.value && !indeterminate.value,
         [`rosy-checkbox-${size.value}`]: size.value,
-        "is-disabled": disabled.value
+        "is-disabled": disabled.value,
+        "is-indeterminate": indeterminate.value,
+        "is-border": border.value,
     }));
     return {
         modelValue,
@@ -89,5 +104,7 @@ export const useCheckbox = (props, emits) => {
         disabled,
         iconColor,
         isGroup,
-      };
+        indeterminate,
+        border,
+    };
 }
