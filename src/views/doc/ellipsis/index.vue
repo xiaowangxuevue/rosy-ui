@@ -20,8 +20,8 @@ import EllipsisPreview1 from "./EllipsisPreview1.preview.vue";
 import EllipsisPreview2 from "./EllipsisPreview2.preview.vue";
 import EllipsisPreview3 from "./EllipsisPreview3.preview.vue";
 const propDoc = [
-  ["expand-trigger", "展开的触发方式", "string", "click", "-"],
-  ["line-clamp", "	最大行数", "number | string", "-", "-"],
+  ["expand-trigger", "string" , "-"],
+  ["line-clamp",  "number | string", "-"],
 ];
 const slotDoc = [["default", "	文本省略的内容"]];
 </script>

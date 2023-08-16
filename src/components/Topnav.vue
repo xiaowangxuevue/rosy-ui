@@ -4,8 +4,8 @@
       <use xlink:href="#icon-list"></use>
     </svg>
     <div class="logo" @click="getHome">
-      <span>Aurora UI</span>
-      <ry-icon style= "margin-top:-10px" size="40px">
+     
+      <!-- <ry-icon style= "margin-top:-10px" size="22px">
         <svg viewBox="0 0 256 226" version="1.1" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
           <g>
@@ -59,8 +59,8 @@
               fill="#FFFFFF"></path>
           </g>
         </svg>
-      </ry-icon>
- 
+      </ry-icon> -->
+      <span>Aurora UI</span>
     </div>
     <div class="menu">
       <router-link exact to="/home">
@@ -145,11 +145,11 @@ const toggleAside = () => {
 
     span {
       margin-left: 10px;
-      color: #6366F1;
+      // color: #6366F1;
       cursor: pointer;
-      font-size: 30px;
-      line-height: 30px;
-      height: 30px;
+      font-size: 18px;
+      line-height: 18px;
+      height: 18px;
       font-weight: 700;
     }
 
@@ -189,7 +189,7 @@ const toggleAside = () => {
 
     span {
       color: rgb(51, 54, 57);
-      font-size: 14px;
+      font-size: 18px;
     }
   }
 
@@ -201,18 +201,15 @@ const toggleAside = () => {
   }
 
   @media (max-width: 500px) {
-    > span {
-      display: none;
-    }
+   
     >.menu {
 
       display: none;
 
     }
 
-    >.logo {
-      margin: 0 auto;
-    }
+ 
+    
 
     >.toggle-aside {
       display: inline-block;

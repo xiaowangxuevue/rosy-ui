@@ -4,7 +4,7 @@
     <Topnav :toggleMenuButton="false" />
     <div class="banner">
       <h1>Aurora UI</h1>
-      <p>一个 Vue 3 组件库</p>
+      <p>A Vue 3 UI Framework</p>
       <div class="actions">
         <ry-button @click="linkTo('github')">GitHub</ry-button>
         <ry-button @click="linkTo('getStart')" theme="primary">快速使用</ry-button>
@@ -17,6 +17,18 @@
       <li>
         <h3>Vue 3 & Vite based</h3>
         <p>Seriously... Should we really introduce you to the Vue.js world ?</p>
+      </li>
+      <li>
+        <h3>Vue 3 & Vite based</h3>
+        <p>Seriously... Should we really introduce you to the Vue.js world ?</p>
+      </li>
+      <li>
+        <h3>Vue 3 & Vite based</h3>
+        <p>Seriously... Should we really introduce you to the Vue.js world ?</p>
+      </li>
+      <li>
+        <h3>Customization</h3>
+        <p>Customize easily with CSS vars, typed config, and even customizable components prefix !</p>
       </li>
       <li>
         <h3>Customization</h3>

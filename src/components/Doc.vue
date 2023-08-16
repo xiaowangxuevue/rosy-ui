@@ -38,17 +38,17 @@ const props = defineProps({
 });
 
 const { type } = props
-
+console.log(props.body,'props')
 
 const headerProps = computed(() => {
     if (props.header.length === 0) {
         switch (type) {
             case "prop":
-                return ["属性", "说明", "类型", "可选值", "默认值"];
+            return ["Name", "Description", "Type", "Optional", "Default"];
             case "slot":
-                return ["插槽名", "说明"];
+                return ["Name", "Description"];
             case "event":
-                return ["事件名", "说明", "回调函数"];
+                return ["Name", "Description", "Callback"];
         }
     }
     return props.header;
@@ -84,7 +84,7 @@ table {
         color: rgb(17, 24, 39);
     }
     th {
-        font-weight: 1000;
+        font-weight: 600;
         font-size: 1.025rem;
     }
     tbody {
@@ -104,6 +104,24 @@ table {
             }
 
         }
+    }
+}
+
+
+@media (max-width: 1140px) {
+    // table thead th:nth-child(2),
+    table thead th:nth-child(4),
+    // table tbody td:nth-child(2),
+    table tbody td:nth-child(4) {
+        display: none;
+    }
+}
+@media (max-width: 780px) {
+    table thead th:nth-child(2),
+    table thead th:nth-child(4),
+    table tbody td:nth-child(2),
+    table tbody td:nth-child(4) {
+        display: none;
     }
 }
 </style>
