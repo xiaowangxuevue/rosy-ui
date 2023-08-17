@@ -38,7 +38,6 @@ const props = defineProps({
 });
 
 const { type } = props
-console.log(props.body,'props')
 
 const headerProps = computed(() => {
     if (props.header.length === 0) {

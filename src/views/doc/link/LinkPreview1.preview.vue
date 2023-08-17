@@ -1,6 +1,6 @@
 <preview>基础</preview>
 <template>
-  <ry-link href="/doc/link" target="_blank"
+  <ry-link href="#" target="_blank"
     >默认链接</ry-link
   >
   <ry-link type="primary">主要链接</ry-link>

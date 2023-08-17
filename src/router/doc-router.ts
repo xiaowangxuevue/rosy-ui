@@ -20,7 +20,7 @@ import DialogDoc from "@/views/doc/dialog/index.vue";
 import TabsDoc from "@/views/doc/tabs/index.vue";
 import AvatarDoc from "@/views/doc/avatar/index.vue";
 import IconDoc from "@/views/doc/icon/index.vue";
-export default {
+const docMenus = {
     General: [
         { path: "intro", component: IntroDoc, name: "Introduce" },
         { path: "install", component: InstallDoc, name: "Install" },
@@ -42,3 +42,12 @@ export default {
     FeedbackComponent: [{ path: "dialog", component: DialogDoc, name: "Dialog" }],
     NavComponent: [{ path: "tabs", component: TabsDoc, name: "Tabs" }],
 };
+
+
+let docRoutes= [];
+
+for(let i in docMenus) {
+  docRoutes = [...docRoutes, ...docMenus[i]]
+}
+
+export { docRoutes, docMenus };

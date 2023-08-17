@@ -46,7 +46,7 @@ import Topnav from "@/components/Topnav.vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-console.log(router);
+
 
 const linkTo = (params) => {
   if (params === "github") {

@@ -4,7 +4,7 @@
     <div class="content">
       <aside :style="asideStyle">
         <div class="menu">
-          <div class="menu-group" v-for="(itemx, index) in docRoutes" :key="index">
+          <div class="menu-group" v-for="(itemx, index) in docMenus" :key="index">
 
             <span class="menu-group-title text-overflow">{{ index }}{{ index !== "文档" ? `（${itemx.length}）` : "" }}</span>
             <router-link v-for="(item, index) in itemx" class="menu-item text-overflow" :to="`/doc/${item.path}`">
@@ -28,7 +28,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import docRoutes from "@/router/doc-router.ts";
+import {docMenus} from "@/router/doc-router.ts";
 
 import Topnav from "@/components/Topnav.vue";
 import { inject, type Ref, computed } from "vue";

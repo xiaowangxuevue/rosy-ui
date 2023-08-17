@@ -64,7 +64,7 @@ const classes = computed(() => {
 });
 
 const solts = useSlots();
-console.log(solts,'slots');
+
 
 </script>
 
