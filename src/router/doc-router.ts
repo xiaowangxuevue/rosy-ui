@@ -20,6 +20,7 @@ import DialogDoc from "@/views/doc/dialog/index.vue";
 import TabsDoc from "@/views/doc/tabs/index.vue";
 import AvatarDoc from "@/views/doc/avatar/index.vue";
 import IconDoc from "@/views/doc/icon/index.vue";
+import InputDoc from "@/views/doc/input/index.vue"
 const docMenus = {
     General: [
         { path: "intro", component: IntroDoc, name: "Introduce" },
@@ -38,6 +39,7 @@ const docMenus = {
         { path: "switch", component: SwitchDoc, name: "Switch" },
         { path: "radio", component: RadioDoc, name: "Radio" },
         { path: "checkbox", component: CheckboxDoc, name: "Checkbox" },
+        { path: "input", component: InputDoc, name: "Input" },
     ],
     FeedbackComponent: [{ path: "dialog", component: DialogDoc, name: "Dialog" }],
     NavComponent: [{ path: "tabs", component: TabsDoc, name: "Tabs" }],

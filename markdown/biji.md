@@ -58,3 +58,20 @@ createWebHashHistory();
 
 ##
 https://github.com/coderyjw/jw-ui.git 库
+
+
+##
+ type TargetElement = HTMLInputElement | HTMLTextAreaElement;
+ChatGPT
+这段代码定义了一个 TypeScript 类型别名 TargetElement，它可以表示两种类型的 HTML 元素：HTMLInputElement 和 HTMLTextAreaElement。这两种元素分别表示输入框（文本输入框）和文本域（多行文本输入框）。
+
+通过这个类型别名，你可以在 TypeScript 代码中使用 TargetElement 来声明变量、参数或返回值，以确保这些值只能是 HTMLInputElement 或 HTMLTextAreaElement 类型的实例。这有助于在编译时捕获类型错误，并提供更好的类型安全性。
+
+例如，你可以这样使用 TargetElement：
+
+typescript
+Copy code
+function doSomething(element: TargetElement) {
+    // 在这里，element 必须是 HTMLInputElement 或 HTMLTextAreaElement 类型
+    // 可以安全地调用这些元素的属性和方法
+}
