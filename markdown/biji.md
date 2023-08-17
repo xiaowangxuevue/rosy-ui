@@ -75,3 +75,5 @@ function doSomething(element: TargetElement) {
     // 在这里，element 必须是 HTMLInputElement 或 HTMLTextAreaElement 类型
     // 可以安全地调用这些元素的属性和方法
 }
+..
+const { value } = e.target as TargetElement;：这行代码从事件对象 e 的 target 属性中提取 value 属性。这里使用了类型断言 as TargetElement，将 target 断言为 TargetElement 类型，以确保 value 的类型是合适的。
