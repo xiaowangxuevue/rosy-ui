@@ -15,7 +15,7 @@
             <Doc title="Checkbox-group 事件" type="event" :body="checkboxGroupEventDoc" />
             <Doc title="Checkbox-group 插槽" type="slot" :body="checkboxGroupSlotDoc" :header="['插槽名', '说明', '子标签']" />
 
-            <PrevAndNext :prev="{ path: '/doc/link', name: 'Link 链接' }" :next="{ path: '/doc/radio', name: '单元框 Radio' }" />
+            <PrevAndNext :prev="{ path: '/doc/radio', name: 'Radio' }" :next="{ path: '/doc/input', name: 'Input' }" />
         </div>
     </div>
 </template>

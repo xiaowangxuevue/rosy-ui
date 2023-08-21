@@ -15,7 +15,7 @@
       <Doc title="Radio-group 事件" type="event" :body="radioGroupEventDoc" />
       <Doc title="Radio-group 插槽" type="slot" :body="radioGroupSlotDoc" :header="['插槽名', '说明', '子标签']" />
 
-      <PrevAndNext :prev="{ path: '/doc/link', name: 'Link 链接' }" :next="{ path: '/doc/switch', name: '开关 Switch' }" />
+      <PrevAndNext :prev="{ path: '/doc/switch', name: 'Switch' }" :next="{ path: '/doc/checkbox', name: 'Checkbox' }" />
     </div>
   </div>
 </template>

@@ -7,7 +7,7 @@
     <Doc title="属性" type="prop" :body="propsDoc" />
     <Doc title="事件" type="event" :body="eventDoc" />
     <Doc title="插槽" type="slot" :body="slotDoc" />
-    <PrevAndNext :prev="{ path: '/doc/switch', name: 'Switch开关' }" :next="{ path: '/doc/tabs', name: 'Tabs标签页' }" />
+    <PrevAndNext :prev="{ path: '/doc/input', name: 'Input' }" :next="{ path: '/doc/tabs', name: 'Tabs' }" />
   </div>
 </template>
 

@@ -9,8 +9,8 @@
         <Doc title="属性" type="prop" :body="propDoc" />
         <Doc title="插槽" type="slot" :body="slotDoc" />
         <PrevAndNext
-          :prev="{ path: '/doc/switch', name: 'Switch 开关 ' }"
-          :next="{ path: '/doc/tabs', name: '标签页 Tabs' }"
+          :prev="{ path: '/doc/icon', name: 'Icon ' }"
+          :next="{ path: '/doc/Switch', name: 'Switch' }"
         />
       </div>
     </div>

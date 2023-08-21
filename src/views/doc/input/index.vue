@@ -11,8 +11,8 @@
             <Doc title="属性" type="prop" :body="propDoc" />
       <Doc title="事件" type="event" :body="eventDoc" />
       <PrevAndNext
-        :prev="{ path: '/doc/checkbox', name: '复选框 Checkbox' }"
-        :next="{ path: '/doc/radio', name: '单选框 Radio' }"/>
+        :prev="{ path: '/doc/checkbox', name: 'Checkbox' }"
+        :next="{ path: '/doc/radio', name: ' Radio' }"/>
         </div>
     </div>
 </template>

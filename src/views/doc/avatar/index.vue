@@ -10,8 +10,8 @@
       <Doc title="事件" type="event" :body="eventDoc" />
       <Doc title="插槽" type="slot" :body="slotDoc" />
       <PrevAndNext
-        :prev="{ path: '/doc/get-started', name: '快速使用' }"
-        :next="{ path: '/doc/button', name: 'Button按钮' }"
+        :prev="{ path: '/doc/get-started', name: 'GettingStarted' }"
+        :next="{ path: '/doc/button', name: 'Button' }"
       />
     </div>
   </div>

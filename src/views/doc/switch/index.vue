@@ -5,7 +5,7 @@
     <Preview :component="SwitchPreview2" />
     <Preview :component="SwitchPreview3" />
     <Doc title="属性" type="prop" :body="propsDoc" />
-    <PrevAndNext :prev="{ path: '/doc/button', name: 'Button按钮' }" :next="{ path: '/doc/dialog', name: 'Dialog对话框' }" />
+    <PrevAndNext :prev="{ path: '/doc/link', name: 'Link' }" :next="{ path: '/doc/radio', name: 'Radio' }" />
   </div>
 </template>
 

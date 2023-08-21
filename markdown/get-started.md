@@ -40,4 +40,4 @@ import "zrosy-ui/dist/lib/zrosy-ui.css";
 </template>
 ```
 
-下一节：[Avatar 头像](#/doc/avatar)
+下一节：[Avatar](#/doc/avatar)

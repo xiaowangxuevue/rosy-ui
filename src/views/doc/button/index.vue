@@ -11,9 +11,9 @@
       <Doc title="属性" type="prop" :body="propsDoc" />
       <Doc title="插槽" type="slot" :body="slotDoc" />
       <PrevAndNext
-        :prev="{ path: '/doc/avatar', name: 'Avatar头像' }"
-        :next="{ path: '/doc/ellipsis', name: 'Ellipsis文本省略' }"
-      />
+        :prev="{ path: '/doc/avatar', name: 'Avatar' }"
+        :next="{ path: '/doc/divider', name: 'Divider' }" />
+      
     </div>
 
   </div>

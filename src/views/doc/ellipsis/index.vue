@@ -1,13 +1,14 @@
 <template>
   <div class="ellipsis-doc-wrapper">
     <h1>Ellipsis 文本省略</h1>
-    <div class="preview-wrapper" >
-      <Preview  :component="EllipsisPreview1" />
+    <div class="preview-wrapper">
+      <Preview :component="EllipsisPreview1" />
       <Preview :component="EllipsisPreview2" />
       <Preview :component="EllipsisPreview3" />
       <Doc title="属性" type="prop" :body="propDoc" />
       <Doc title="插槽" type="slot" :body="slotDoc" />
-      <PrevAndNext :prev="{ path: '/doc/button', name: 'Button 按钮' }" :next="{ path: '/doc/icon', name: 'Icon 图标' }" />
+      <PrevAndNext :prev="{ path: '/doc/divider', name: 'Divider' }" 
+      :next="{ path: '/doc/icon', name: 'Icon ' }" />
     </div>
   </div>
 </template>
@@ -20,18 +21,16 @@ import EllipsisPreview1 from "./EllipsisPreview1.preview.vue";
 import EllipsisPreview2 from "./EllipsisPreview2.preview.vue";
 import EllipsisPreview3 from "./EllipsisPreview3.preview.vue";
 const propDoc = [
-  ["expand-trigger", "string" , "-"],
-  ["line-clamp",  "number | string", "-"],
+  ["expand-trigger", "string", "-"],
+  ["line-clamp", "number | string", "-"],
 ];
 const slotDoc = [["default", "	文本省略的内容"]];
 </script>
   
 <style scoped>
-  h1{
-    color: #000;
-    font-size: 1.8rem;
-    font-weight: 700;
-  }
-
-
+h1 {
+  color: #000;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
 </style>
