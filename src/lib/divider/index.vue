@@ -1,10 +1,18 @@
 <template>
-  <div class="rosy-divider">
-    <div class="rosy-divider-line"></div>
+  <div class="rosy-divider" 
+   :class="{
+      horizontal: direction === 'horizontal',
+      vertical: direction === 'vertical',
+    }" 
+    >
+    <div class="rosy-divider-line horizontal" v-if="direction === 'horizontal'" > </div>
 
-    <div class="rosy-divider-title" :class="classes">
+    <div class="rosy-divider-title" v-if="direction === 'horizontal'" :class="classes">
       <slot></slot>
     </div>
+
+
+    <div class="rosy-divider-line vertical" v-if="direction === 'vertical'" />
   </div>
 
 
@@ -21,7 +29,11 @@ const props = defineProps({
     direction:{
         type:String,
         default:'horizontal'
-    }
+    },
+    vertical: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 
@@ -33,6 +45,7 @@ const classes = computed(() => ({
   "is-left": props.titlePlacement === "left",
   "is-right": props.titlePlacement === "right",
   "is-center": props.titlePlacement === "center",
+  "is-vertical":props.direction === 'vertical'
 }));
 // console.log(classes,'...........');
 
@@ -47,19 +60,31 @@ export default {
 
 <style lang="scss">
 .rosy-divider {
-  margin: 24px 0;
-  position: relative;
   display: flex;
-  width: 100%;
   box-sizing: border-box;
   font-size: 16px;
   color: rgb(31, 34, 37);
+  &.horizontal {
+    margin: 24px 0;
+    position: relative;
+    width: 100%;
+  }
   .rosy-divider-line {
     background-color: rgb(239, 239, 245);
-    height: 1px;
-    border: none;
-    width: 100%;
-    position: absolute;
+    &.horizontal {
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      border: none;
+    }
+    &.vertical {
+      display: inline-block;
+      width: 1px;
+      height: 1em;
+      margin: 0 8px;
+      vertical-align: middle;
+      position: relative;
+    }
   }
   .rosy-divider-title {
     position: absolute;

@@ -3,6 +3,7 @@
     <div class="preview-wrapper">
       <Preview :component="dividerPreview1" />
       <Preview :component="dividerPreview2" />
+      <Preview :component="dividerPreview3" />
 
       <!-- <Doc title="属性" type="prop" :body="propsDoc" />
       <Doc title="事件" type="event" :body="eventDoc" />
@@ -17,6 +18,7 @@
   import Preview from "@/components/Preview.vue";
 import dividerPreview1 from './dividerPreview1.preview.vue';
 import dividerPreview2 from './dividerPreview2.preview.vue';
+import dividerPreview3 from './dividerPreview3.preview.vue';
 
   </script>
   
