@@ -1,25 +1,46 @@
 <template>
   <div class="rosy-input" :class="classes">
-    <input :disabled="disabled" type="text" class="rosy-input-inner" autocomplete="off" :value="nativeInputValue"
-      @input="handleChange" :placeholder="placeholder" />
-    <div class="circle-close" v-if="clearable && nativeInputValue.length > 0" @click="hanldeClear">
-      <ry-icon :size="18">
-        <CloseCircleOutline />
-      </ry-icon>
-    </div>
+    <template v-if="type !== 'textarea'">
+      <input :disabled="disabled" :type="type" class="rosy-input-inner" autocomplete="off" :value="nativeInputValue"
+        @input="handleChange" :placeholder="placeholder" />
+      <div class="circle-close" v-if="clearable && nativeInputValue.length > 0" @click="hanldeClear">
+        <ry-icon :size="18">
+          <CloseCircleOutline />
+        </ry-icon>
 
+      </div>
+      <!-- 密码框 -->
+      <div class="password-icon" v-if="showPassword" @click="handlePasswordVisible">
+        <ry-icon :size="18">
+          <Eye />
+        </ry-icon>
+      </div>
+    </template>
+    <template v-else>
+      <textarea
+        class="rosy-textarea-inner"
+        autocomplete="off"
+        rows="2"
+        :placeholder="placeholder"
+        :value="nativeInputValue"
+        @input="handleChange"
+      />
+    </template>
 
   </div>
 </template>
   
 <script setup lang="ts">
 import { CloseCircleOutline } from "@vicons/ionicons5";
+import { Eye } from "@vicons/fa";
 import { computed } from "vue";
 import { inputEmit, inputProps, useInput } from "./input";
 type TargetElement = HTMLInputElement | HTMLTextAreaElement;   //1,  dis 2,
 const props = defineProps(inputProps);
 const emits = defineEmits(inputEmit);
-const { disabled, classes, clearable } = useInput(props, emits);
+const { disabled, classes, clearable, type, passwordVisible } = useInput(props, emits);
+console.log(type.value,'type123');
+
 const nativeInputValue = computed(() =>
   props.modelValue === null || props.modelValue === undefined
     ? ""
@@ -37,6 +58,9 @@ const hanldeClear = () => {
   emits("update:modelValue", "");
   emits("input", "");
 };
+const handlePasswordVisible = () => {
+  passwordVisible.value = !passwordVisible.value;
+};
 
 </script>
 <script lang="ts">
@@ -52,6 +76,7 @@ $active-color: #18a058;
   width: 180px;
   cursor: pointer;
   position: relative;
+
   &-inner {
     position: relative;
     cursor: pointer;
@@ -97,12 +122,18 @@ $active-color: #18a058;
       }
     }
   }
-  .circle-close {
+
+  .circle-close,
+  .password-icon {
     display: none;
   }
+
   &:hover .circle-close,
   &:focus .circle-close,
-  &:active .circle-close {
+  &:active .circle-close,
+  &:hover .password-icon,
+  &:focus .password-icon,
+  &:active .password-icon {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -111,11 +142,44 @@ $active-color: #18a058;
     justify-content: center;
     align-items: center;
     margin-right: 5px;
+
     .rosy-icon {
       color: #dcdfe6;
+
       &:hover {
         color: #c0c4cc;
       }
+    }
+  }
+  
+}
+.rosy-textarea {
+  .rosy-textarea-inner {
+    display: block;
+    resize: vertical;
+    padding: 5px 15px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: inherit;
+    color: #606266;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    &:hover {
+      border-color: #c0c4cc;
+    }
+    &:active,
+    &:focus {
+      outline: none;
+      border-color: $active-color;
+      box-shadow: 0 0 0 2px rgba(24, 160, 88, 0.3);
+    }
+    &::placeholder {
+      color: rgb(213, 215, 220);
+      font-size: inherit;
     }
   }
 }
