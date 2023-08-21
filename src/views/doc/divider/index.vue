@@ -2,6 +2,7 @@
     <h1>Divider 分割线</h1>
     <div class="preview-wrapper">
       <Preview :component="dividerPreview1" />
+      <Preview :component="dividerPreview2" />
 
       <!-- <Doc title="属性" type="prop" :body="propsDoc" />
       <Doc title="事件" type="event" :body="eventDoc" />
@@ -15,6 +16,7 @@
 //   import PrevAndNext from "@/components/PrevAndNext.vue";
   import Preview from "@/components/Preview.vue";
 import dividerPreview1 from './dividerPreview1.preview.vue';
+import dividerPreview2 from './dividerPreview2.preview.vue';
 
   </script>
   
