@@ -10,6 +10,7 @@ const IntroDoc = md(Intro);
 const GetStartedDoc = md(GetStarted);
 const InstallDoc = md(Install);
 
+import DividerDoc from "@/views/doc/divider/index.vue"
 import CheckboxDoc from "@/views/doc/checkbox/index.vue"
 import RadioDoc from "@/views/doc/radio/index.vue";
 import LinkDoc from "@/views/doc/link/index.vue"
@@ -31,6 +32,7 @@ const docMenus = {
 
         { path: "avatar", component: AvatarDoc, name: "Avatar" },
         { path: "button", component: ButtonDoc, name: "Button" },
+        { path: "divider", component: DividerDoc, name: "Divider" },
         { path: "ellipsis", component: EllipsisDoc, name: "Ellipsis" },
         { path: "icon", component: IconDoc, name: "Icon" },
         { path: "link", component: LinkDoc, name: "Link" },
