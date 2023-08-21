@@ -1,4 +1,4 @@
-import { computed ,ref} from "vue";
+import { computed, ref } from "vue";
 
 export const inputProps = {
   modelValue: {
@@ -23,9 +23,15 @@ export const inputProps = {
     type: String,
     default: "text",
   },
-};
+  prefixIcon: {
+    type: [String, Object],
+  },
+  suffixIcon: {
+    type: [String,Object],
+  }
+}
 
-console.log(inputProps.type,'231');
+console.log(inputProps.type, '231');
 
 
 export const inputEmit = ["update:modelValue", "input"];
@@ -43,9 +49,9 @@ export const useInput = (props, emits) => {
   const passwordVisible = ref(false);
   const type = computed(() => {
     return showPassword.value
-    ? passwordVisible.value ? "text" : "password" :props.type;
+      ? passwordVisible.value ? "text" : "password" : props.type;
   })
-  console.log(type.value,'...');
+  console.log(type.value, '...');
 
   return {
     disabled,
@@ -54,6 +60,8 @@ export const useInput = (props, emits) => {
     showPassword,
     type,
     passwordVisible,
+    suffixIcon: props.suffixIcon,
+    prefixIcon: props.prefixIcon,
 
   };
 };

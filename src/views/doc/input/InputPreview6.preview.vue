@@ -1,9 +1,16 @@
-<preview>带icon的输入框</preview>
+<preview>带 icon 的输入框</preview>
 <template>
-    <ry-input  placeholder="请输入内容"  v-model="Value" />
+  <ry-input
+    placeholder="请输入内容"
+    v-model="value"
+    :suffixIcon="Search28Filled"
+    show-password
+    clearable
+  />
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-const Value = ref('hello')
+import { Search28Filled } from "@vicons/fluent";
+const value = ref("hello");
 </script>

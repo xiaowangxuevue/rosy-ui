@@ -7,7 +7,7 @@
             <Preview :component="InputPreview3" />
             <Preview :component="InputPreview4" />
             <Preview :component="InputPreview5" />
-                
+            <Preview :component="InputPreview6" />
         </div>
     </div>
 </template>ssss

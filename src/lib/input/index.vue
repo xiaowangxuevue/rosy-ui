@@ -1,36 +1,40 @@
 <template>
-  <div class="rosy-input" :class="classes">
+  <div :class="classes" class='rosy-input'>
+    <!-- input -->
     <template v-if="type !== 'textarea'">
       <input :disabled="disabled" :type="type" class="rosy-input-inner" autocomplete="off" :value="nativeInputValue"
         @input="handleChange" :placeholder="placeholder" />
-      <div class="circle-close" v-if="clearable && nativeInputValue.length > 0" @click="hanldeClear">
-        <ry-icon :size="18">
-          <CloseCircleOutline />
-        </ry-icon>
 
-      </div>
-      <!-- 密码框 -->
-      <div class="password-icon" v-if="showPassword" @click="handlePasswordVisible">
-        <ry-icon :size="18">
-          <Eye />
+      <!-- suffix slot -->
+      <span class="rosy-input-suffix-icon">
+        <ry-icon v-if="suffixIcon" class="suffix-icon" :size="18" color="#dcdfe6">
+          <component :is="suffixIcon" />
         </ry-icon>
-      </div>
+        <!-- clearable -->
+        <div class="close-icon" v-if="clearable && nativeInputValue.length > 0" @click="hanldeClear">
+          <ry-icon :size="18">
+            <CloseCircleOutline />
+          </ry-icon>
+        </div>
+
+        <!-- password -->
+        <div class="password-icon" v-if="showPassword" @click="handlePasswordVisible">
+          <ry-icon :size="18">
+            <Eye />
+          </ry-icon>
+        </div>
+      </span>
     </template>
     <template v-else>
-      <textarea
-        class="rosy-textarea-inner"
-        autocomplete="off"
-        rows="2"
-        :placeholder="placeholder"
-        :value="nativeInputValue"
-        @input="handleChange"
-      />
+      <textarea class="rosy-textarea-inner" autocomplete="off" rows="2" :placeholder="placeholder"
+        :value="nativeInputValue" @input="handleChange" />
     </template>
 
   </div>
 </template>
   
 <script setup lang="ts">
+import { Search } from "@vicons/ionicons5";
 import { CloseCircleOutline } from "@vicons/ionicons5";
 import { Eye } from "@vicons/fa";
 import { computed } from "vue";
@@ -38,8 +42,9 @@ import { inputEmit, inputProps, useInput } from "./input";
 type TargetElement = HTMLInputElement | HTMLTextAreaElement;   //1,  dis 2,
 const props = defineProps(inputProps);
 const emits = defineEmits(inputEmit);
-const { disabled, classes, clearable, type, passwordVisible } = useInput(props, emits);
-console.log(type.value,'type123');
+const { disabled, classes, clearable, suffixIcon,
+  prefixIcon, type, passwordVisible } = useInput(props, emits);
+console.log(type.value, 'type123');
 
 const nativeInputValue = computed(() =>
   props.modelValue === null || props.modelValue === undefined
@@ -68,7 +73,6 @@ export default {
   name: "RyInput",
 };
 </script>
-
 <style lang="scss">
 $active-color: #18a058;
 
@@ -76,6 +80,14 @@ $active-color: #18a058;
   width: 180px;
   cursor: pointer;
   position: relative;
+
+  &.rosy-input-prefix .rosy-input-inner {
+    padding-left: 30px;
+  }
+
+  &.rosy-input-suffix .rosy-input-inner {
+    padding-right: 30px;
+  }
 
   &-inner {
     position: relative;
@@ -106,6 +118,11 @@ $active-color: #18a058;
       border-color: $active-color;
       box-shadow: 0 0 0 2px rgba(24, 160, 88, 0.3);
     }
+
+    &::placeholder {
+      color: rgb(213, 215, 220);
+      font-size: inherit;
+    }
   }
 
   &.is-disabled {
@@ -123,25 +140,31 @@ $active-color: #18a058;
     }
   }
 
-  .circle-close,
-  .password-icon {
-    display: none;
-  }
-
-  &:hover .circle-close,
-  &:focus .circle-close,
-  &:active .circle-close,
-  &:hover .password-icon,
-  &:focus .password-icon,
-  &:active .password-icon {
+  .rosy-input-suffix-icon {
     position: absolute;
-    right: 0;
+    right: 5px;
     bottom: 0;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 5px;
+  }
+
+  .close-icon,
+  .password-icon {
+    display: none;
+  }
+
+  &:hover .close-icon,
+  &:focus .close-icon,
+  &:hover .password-icon,
+  &:focus .password-icon,
+  .suffix-icon {
+    margin: 0 1px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .rosy-icon {
       color: #dcdfe6;
@@ -151,8 +174,12 @@ $active-color: #18a058;
       }
     }
   }
-  
+
+  .suffix-icon .rosy-icon:hover {
+    color: #dcdfe6;
+  }
 }
+
 .rosy-textarea {
   .rosy-textarea-inner {
     display: block;
@@ -168,15 +195,18 @@ $active-color: #18a058;
     border: 1px solid #dcdfe6;
     border-radius: 4px;
     transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
     &:hover {
       border-color: #c0c4cc;
     }
+
     &:active,
     &:focus {
       outline: none;
       border-color: $active-color;
       box-shadow: 0 0 0 2px rgba(24, 160, 88, 0.3);
     }
+
     &::placeholder {
       color: rgb(213, 215, 220);
       font-size: inherit;
