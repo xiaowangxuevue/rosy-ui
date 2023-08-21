@@ -42,6 +42,11 @@ export const useInput = (props, emits) => {
     "is-disabled": disabled.value,
     "is-clearable": clearable.value,
     "show-password": showPassword.value,
+    "rosy-input": type.value !== "textarea",
+    "rosy-textarea": type.value === "textarea",
+    "rosy-input-suffix":
+      showPassword.value || clearable.value || props.suffixIcon,
+    "rosy-input-prefix": props.prefixIcon,
   }));
   const clearable = computed(() => props.clearable);
   console.log(classes);

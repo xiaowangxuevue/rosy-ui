@@ -10,7 +10,7 @@
             <Preview :component="InputPreview6" />
         </div>
     </div>
-</template>ssss
+</template>
   
 <script setup lang="ts">
 ;
@@ -27,11 +27,16 @@ import InputPreview6 from "./InputPreview6.preview.vue";
 </script>
 
   
-<style scoped> .input-doc-wrapper {
+<style lang="scss"> .input-doc-wrapper {
      >h1 {
          color: #000;
          font-size: 1.8rem;
          font-weight: 700;
+     }
+
+     .rosy-input {
+         margin-right: 8px;
+         margin-bottom: 8px;
      }
  }
 </style>
