@@ -1,9 +1,10 @@
 <template>
     <div class="rosy-select">
-        <ry-input readonly v-model="modelLable" :suffix-icon="IosArrowDown" />
+        <ry-input :disabled="disabled" readonly v-model="modelLable" :suffix-icon="IosArrowDown" />
         <div class="rosy-select-dropdown">
             <div class="no-options" v-show="options.length === 0">无选项</div>
-            <span class="rosy-select-option" :class="{ 'is-active': modelValue === item.value }" v-for="item in options"
+            <span class="rosy-select-option"
+                :class="{ 'is-active': modelValue === item.value, 'is-disabled': item.disabled, }" v-for="item in options"
                 :key="item.value" @click="handleOptionClick(item)">{{ item.label }}</span>
         </div>
     </div>
@@ -14,9 +15,12 @@ import { IosArrowDown } from "@vicons/ionicons4";
 import { selectProps, selectEmits, useSelect } from "./index.ts";
 const props = defineProps(selectProps);
 const emits = defineEmits(selectEmits);
-const { options, modelValue, modelLable } = useSelect(props, emits);
+const { options, modelValue, disabled, modelLable } = useSelect(props, emits);
 const handleOptionClick = (item) => {
-    emits("update:modelValue", item.value);
+    if (!item.disabled) {
+        emits("update:modelValue", item.value);
+        emits("change", item.value);
+    }
 };
 
 </script>
@@ -38,8 +42,8 @@ export default {
         top: 48px;
         width: 100%;
         opacity: 0;
-        height: 200px;
-        width: 80%;
+        height: 0px;
+        width: 100%;
         /* opacity: 1;
     height: 300px;
     width: 100%; */
@@ -58,6 +62,7 @@ export default {
         }
 
         .rosy-select-option {
+            z-index: 10000;
             display: inline-block;
             cursor: pointer;
             min-width: 100%;
@@ -72,6 +77,12 @@ export default {
             &.is-active {
                 background-color: #f3f3f5;
                 color: #25a561;
+            }
+
+            &.is-disabled {
+                cursor: not-allowed;
+                background-color: #fff;
+                color: #c2cddd;
             }
         }
     }
