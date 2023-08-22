@@ -1,4 +1,4 @@
-import { computed, ref } from "vue";
+import { computed } from "vue";
 
 export const selectProps = {
   modelValue: {
@@ -8,20 +8,23 @@ export const selectProps = {
     type: Array,
     default: () => [],
   },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  placeholder: {
-    type: String,
-    default: "请选择",
-  },
-  clearable: {
-    type: Boolean,
-    default: false,
-  },
-  multiple: {
-    type: Boolean,
-    default: false,
-  },
+};
+
+export const selectEmits = ['update:modelValue'];
+
+export const useSelect = (props, emits) => {
+  const options = computed(() => props.options);
+
+  const modelValue = computed(() => props.modelValue);
+  console.log(props.options.find((v) => v.value === props.modelValue));
+
+  const modelLable = computed(() => {
+    const item = props.options.find((v) => v.value === props.modelValue);
+    return item ? item.label : "";
+  });
+  return {
+    options,
+    modelValue,
+    modelLable
+  };
 };
