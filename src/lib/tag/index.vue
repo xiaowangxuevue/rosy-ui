@@ -1,10 +1,14 @@
 <template>
     <div class="rosy-tag" :class="classes">
         <slot />
+        <ry-icon :size="18" v-if="closeable">
+            <Close />
+        </ry-icon>
     </div>
 </template>
   
 <script setup lang="ts">
+import { Close } from "@vicons/ionicons5";
 import { computed } from "vue";
 const props = defineProps({
     type: {
@@ -12,13 +16,19 @@ const props = defineProps({
     },
     size: {
         type: String,
+    },
+    closeable: {
+        type: Boolean,
+        default: false
     }
 });
-console.log(props.type, 'type');
+console.log(props.closeable, 'closeable');
 
 const classes = computed(() => ({
     [`is-${props.type}`]: props.type,
     [`is-${props.size}`]: props.size,
+    [`is-closeable`]: props.closeable,
+
 }));
 </script>
 <script lang="ts">
@@ -85,4 +95,13 @@ export default {
         font-size: 16px;
         line-height: 16px;
     }
-}</style>
+
+    .ry-icon {
+        cursor: pointer;
+    }
+
+    &.is-closeable {
+        padding-right: 5x;
+    }
+}
+</style>
