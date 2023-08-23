@@ -1,5 +1,4 @@
 import { computed, ref } from "vue";
-
 export const inputProps = {
   modelValue: {
     type: [Number, String],
@@ -23,21 +22,27 @@ export const inputProps = {
     type: String,
     default: "text",
   },
+  suffixIcon: {
+    type: [String, Object],
+  },
   prefixIcon: {
     type: [String, Object],
   },
-  suffixIcon: {
-    type: [String,Object],
-  }
-}
-
-console.log(inputProps.type, '231');
-
-
-export const inputEmit = ["update:modelValue", "input"];
-
+};
+export const inputEmit = ["update:modelValue", "input","clear"];
 export const useInput = (props, emits) => {
   const disabled = computed(() => props.disabled);
+  const placeholder = computed(() => props.placeholder);
+  const clearable = computed(() => props.clearable);
+  const showPassword = computed(() => props.showPassword);
+  const passwordVisible = ref(false);
+  const type = computed(() => {
+    return showPassword.value
+      ? passwordVisible.value
+        ? "text"
+        : "password"
+      : props.type;
+  });
   const classes = computed(() => ({
     "is-disabled": disabled.value,
     "is-clearable": clearable.value,
@@ -48,15 +53,6 @@ export const useInput = (props, emits) => {
       showPassword.value || clearable.value || props.suffixIcon,
     "rosy-input-prefix": props.prefixIcon,
   }));
-  const clearable = computed(() => props.clearable);
-  console.log(classes);
-  const showPassword = computed(() => props.showPassword);
-  const passwordVisible = ref(false);
-  const type = computed(() => {
-    return showPassword.value
-      ? passwordVisible.value ? "text" : "password" : props.type;
-  })
-  console.log(type.value, '...');
 
   return {
     disabled,
@@ -65,8 +61,8 @@ export const useInput = (props, emits) => {
     showPassword,
     type,
     passwordVisible,
+    placeholder,
     suffixIcon: props.suffixIcon,
     prefixIcon: props.prefixIcon,
-
   };
 };

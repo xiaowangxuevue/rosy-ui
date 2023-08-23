@@ -1,66 +1,96 @@
 <template>
-  <div :class="classes" >
+  <div :class="classes">
     <!-- input -->
     <template v-if="type !== 'textarea'">
-      <input :disabled="disabled" :type="type" class="rosy-input-inner" autocomplete="off" :value="nativeInputValue"
-        @input="handleChange" :placeholder="placeholder" />
-
+      <input
+        :disabled="disabled"
+        :type="type"
+        class="rosy-input-inner"
+        autocomplete="off"
+        :value="nativeInputValue"
+        @input="handleChange"
+        :placeholder="placeholder"
+      />
+      <!-- prefix slot -->
+      <span class="rosy-input-prefix-icon">
+        <ry-icon
+          v-if="prefixIcon"
+          class="prefix-icon"
+          :size="18"
+          color="#dcdfe6"
+        >
+          <component :is="prefixIcon" />
+        </ry-icon>
+      </span>
       <!-- suffix slot -->
       <span class="rosy-input-suffix-icon">
-        <ry-icon v-if="suffixIcon" class="suffix-icon" :size="18" color="#dcdfe6">
+        <ry-icon
+          v-if="suffixIcon"
+          class="suffix-icon"
+          :size="18"
+          color="#dcdfe6"
+        >
           <component :is="suffixIcon" />
         </ry-icon>
         <!-- clearable -->
-        <div class="close-icon" v-if="clearable && nativeInputValue.length > 0" @click="hanldeClear">
+        <div
+          class="close-icon"
+          v-if="clearable && nativeInputValue.length > 0"
+          @click="hanldeClear"
+        >
           <ry-icon :size="18">
             <CloseCircleOutline />
           </ry-icon>
         </div>
-
         <!-- password -->
-        <div class="password-icon" v-if="showPassword" @click="handlePasswordVisible">
+        <div
+          class="password-icon"
+          v-if="showPassword"
+          @click="handlePasswordVisible"
+        >
           <ry-icon :size="18">
             <Eye />
           </ry-icon>
         </div>
       </span>
-      <!-- prefix slot -->
-      <span class="rosy-input-prefix-icon">
-        <ry-icon v-if="prefixIcon" class="prefix-icon" :size="18" color="#dcdfe6">
-          <component :is="prefixIcon" />
-        </ry-icon>
-      
-      </span>
     </template>
+    <!-- textarea -->
     <template v-else>
-      <textarea class="rosy-textarea-inner" autocomplete="off" rows="2" :placeholder="placeholder"
-        :value="nativeInputValue" @input="handleChange" />
+      <textarea
+        class="rosy-textarea-inner"
+        autocomplete="off"
+        :placeholder="placeholder"
+        :value="nativeInputValue"
+        @input="handleChange"
+      />
     </template>
-
   </div>
 </template>
   
 <script setup lang="ts">
-import { Search } from "@vicons/ionicons5";
-import { CloseCircleOutline } from "@vicons/ionicons5";
-import { Eye } from "@vicons/fa";
 import { computed } from "vue";
 import { inputEmit, inputProps, useInput } from "./input";
-type TargetElement = HTMLInputElement | HTMLTextAreaElement;   //1,  dis 2,
+import { CloseCircleOutline } from "@vicons/ionicons5";
+import { Eye } from "@vicons/fa";
+type TargetElement = HTMLInputElement | HTMLTextAreaElement;
 const props = defineProps(inputProps);
 const emits = defineEmits(inputEmit);
-const { disabled, classes, clearable, suffixIcon,
-  prefixIcon, type, passwordVisible } = useInput(props, emits);
-console.log(type.value, 'type123');
-
+const {
+  disabled,
+  classes,
+  clearable,
+  type,
+  passwordVisible,
+  placeholder,
+  suffixIcon,
+  prefixIcon,
+} = useInput(props, emits);
 const nativeInputValue = computed(() =>
   props.modelValue === null || props.modelValue === undefined
     ? ""
     : String(props.modelValue)
-)
+);
 const handleChange = (e: Event) => {
-  console.log(e, 'e');
-
   const { value } = e.target as TargetElement;
   if (value === nativeInputValue.value) return;
   emits("update:modelValue", value);
@@ -69,11 +99,11 @@ const handleChange = (e: Event) => {
 const hanldeClear = () => {
   emits("update:modelValue", "");
   emits("input", "");
+  emits("clear", "");
 };
 const handlePasswordVisible = () => {
   passwordVisible.value = !passwordVisible.value;
 };
-
 </script>
 <script lang="ts">
 export default {
@@ -178,6 +208,7 @@ $active-color: #18a058;
   }
 }
 .rosy-textarea {
+  width: 100%;
   .rosy-textarea-inner {
     display: block;
     resize: vertical;
@@ -208,7 +239,6 @@ $active-color: #18a058;
   }
 }
 </style>
-
 
   
   

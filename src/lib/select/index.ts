@@ -12,24 +12,38 @@ export const selectProps = {
     type: Boolean,
     default: false,
   },
+  clearable:{
+    type:Boolean,
+    default:false,
+  },
+  placeholder: {
+    type: String,
+  },
 };
 
-export const selectEmits = ['update:modelValue',"change"];
+export const selectEmits = ['update:modelValue',"change","clear","update:placeholder"];
 
 export const useSelect = (props, emits) => {
   const options = computed(() => props.options);
   const disabled = computed(() => props.disabled)
+  const clearable = computed(() => props.clearable)
+  const placeholder = computed(() => props.placeholder);
   const modelValue = computed(() => props.modelValue);
   console.log(props.options.find((v) => v.value === props.modelValue));
 
-  const modelLable = computed(() => {
-    const item = props.options.find((v) => v.value === props.modelValue);
-    return item ? item.label : "";
+  const modelLable = computed({
+    get() {
+      const item = props.options.find((v) => v.value === props.modelValue);
+      return item ? item.label : "";
+    },
+    set() {},
   });
   return {
     options,
     modelValue,
     modelLable,
-    disabled
+    disabled,
+    clearable,
+    placeholder,
   };
 };
