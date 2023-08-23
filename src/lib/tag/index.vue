@@ -1,27 +1,33 @@
 <template>
-    <div class="rosy-tag" :class="classes"><slot/></div>
-  </template>
+    <div class="rosy-tag" :class="classes">
+        <slot />
+    </div>
+</template>
   
-  <script setup lang="ts">
-  import { computed } from "vue";
-  const props = defineProps({
+<script setup lang="ts">
+import { computed } from "vue";
+const props = defineProps({
     type: {
-      type: String,
+        type: String,
     },
-  });
-  console.log(props.type,'type');
-  
-  const classes = computed(() => ({
+    size: {
+        type: String,
+    }
+});
+console.log(props.type, 'type');
+
+const classes = computed(() => ({
     [`is-${props.type}`]: props.type,
-  }));
-  </script>
-  <script lang="ts">
-  export default {
+    [`is-${props.size}`]: props.size,
+}));
+</script>
+<script lang="ts">
+export default {
     name: "RyTag",
-  };
-  </script>
-  <style lang="scss">
-  .rosy-tag {
+};
+</script>
+<style lang="scss">
+.rosy-tag {
     white-space: nowrap;
     position: relative;
     box-sizing: border-box;
@@ -37,35 +43,46 @@
     border: 1px solid rgb(239, 239, 245);
     background-color: rgb(250, 250, 252);
     color: rgb(51, 54, 57);
-  
+
     &.is-success {
-      color: rgb(24, 160, 88);
-      background-color: rgba(24, 160, 88, 0.1);
-      border: 1px solid rgb(168, 219, 193);
+        color: rgb(24, 160, 88);
+        background-color: rgba(24, 160, 88, 0.1);
+        border: 1px solid rgb(168, 219, 193);
     }
-  
+
     &.is-success {
-      color: rgb(24, 160, 88);
-      background-color: rgba(24, 160, 88, 0.1);
-      border: 1px solid rgb(168, 219, 193);
+        color: rgb(24, 160, 88);
+        background-color: rgba(24, 160, 88, 0.1);
+        border: 1px solid rgb(168, 219, 193);
     }
-  
+
     &.is-warning {
-      color: rgb(240, 160, 32);
-      background-color: rgba(240, 160, 32, 0.12);
-      border: 1px solid rgb(249, 214, 159);
+        color: rgb(240, 160, 32);
+        background-color: rgba(240, 160, 32, 0.12);
+        border: 1px solid rgb(249, 214, 159);
     }
-  
+
     &.is-info {
-      color: rgb(32, 128, 240);
-      background-color: rgba(32, 128, 240, 0.1);
-      border: 1px solid rgb(172, 208, 249);
+        color: rgb(32, 128, 240);
+        background-color: rgba(32, 128, 240, 0.1);
+        border: 1px solid rgb(172, 208, 249);
     }
-  
+
     &.is-error {
-      color: rgb(208, 48, 80);
-      background-color: rgba(208, 48, 80, 0.08);
-      border: 1px solid rgb(241, 195, 204);
+        color: rgb(208, 48, 80);
+        background-color: rgba(208, 48, 80, 0.08);
+        border: 1px solid rgb(241, 195, 204);
     }
-  }
-  </style>
+
+    &.is-small {
+        font-size: 12px;
+        line-height: 12px;
+        height: 22px;
+    }
+
+    &.is-large {
+        height: 34px;
+        font-size: 16px;
+        line-height: 16px;
+    }
+}</style>
