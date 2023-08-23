@@ -9,7 +9,7 @@ const md = (string) => h(Markdown, { content: string, key: string });
 const IntroDoc = md(Intro);
 const GetStartedDoc = md(GetStarted);
 const InstallDoc = md(Install);
-import TabDoc from "@/views/doc/tab/index.vue"
+import TagDoc from "@/views/doc/tag/index.vue"
 import DividerDoc from "@/views/doc/divider/index.vue"
 import CheckboxDoc from "@/views/doc/checkbox/index.vue"
 import RadioDoc from "@/views/doc/radio/index.vue";
@@ -37,7 +37,7 @@ const docMenus = {
         { path: "ellipsis", component: EllipsisDoc, name: "Ellipsis" },
         { path: "icon", component: IconDoc, name: "Icon" },
         { path: "link", component: LinkDoc, name: "Link" },
-        { path: "tab", component: TabDoc, name: "tab" },
+        { path: "tag", component: TagDoc, name: "tag" },
     ],
     DataEnterComponent: [
         { path: "switch", component: SwitchDoc, name: "Switch" },
