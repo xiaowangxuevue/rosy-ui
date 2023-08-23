@@ -47,7 +47,6 @@ const handleClear = (e) => {
     
   emits("update:modelValue", "");
   emits("clear", "");
-  emits("update:placeholder","请选择")
 };
 
 </script>

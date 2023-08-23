@@ -18,10 +18,11 @@ export const selectProps = {
   },
   placeholder: {
     type: String,
+    default:'请选择'
   },
 };
 
-export const selectEmits = ['update:modelValue',"change","clear","update:placeholder"];
+export const selectEmits = ['update:modelValue',"change","clear"];
 
 export const useSelect = (props, emits) => {
   const options = computed(() => props.options);
