@@ -65,6 +65,7 @@ export default {
     flex-wrap: nowrap;
     padding: 0 7px;
     height: 28px;
+    margin-left: 7px;
     font-size: 14px;
     line-height: 1;
     border-radius: 2px;
