@@ -2,52 +2,28 @@
   <div :class="classes">
     <!-- input -->
     <template v-if="type !== 'textarea'">
-      <input
-        :disabled="disabled"
-        :type="type"
-        class="rosy-input-inner"
-        autocomplete="off"
-        :value="nativeInputValue"
-        @input="handleChange"
-        :placeholder="placeholder"
-      />
+      <input ref="input" :disabled="disabled" :type="type" class="rosy-input-inner" autocomplete="off"     @blur="handleBlur"
+        @focus="handleFocus"
+        :value="nativeInputValue" @input="handleChange" :placeholder="placeholder" />
       <!-- prefix slot -->
       <span class="rosy-input-prefix-icon">
-        <ry-icon
-          v-if="prefixIcon"
-          class="prefix-icon"
-          :size="18"
-          color="#dcdfe6"
-        >
+        <ry-icon v-if="prefixIcon" class="prefix-icon" :size="18" color="#dcdfe6">
           <component :is="prefixIcon" />
         </ry-icon>
       </span>
       <!-- suffix slot -->
       <span class="rosy-input-suffix-icon">
-        <ry-icon
-          v-if="suffixIcon"
-          class="suffix-icon"
-          :size="18"
-          color="#dcdfe6"
-        >
+        <ry-icon v-if="suffixIcon" class="suffix-icon" :size="18" color="#dcdfe6">
           <component :is="suffixIcon" />
         </ry-icon>
         <!-- clearable -->
-        <div
-          class="close-icon"
-          v-if="clearable && nativeInputValue.length > 0"
-          @click="hanldeClear"
-        >
+        <div class="close-icon" v-if="clearable && nativeInputValue.length > 0" @click="hanldeClear">
           <ry-icon :size="18">
             <CloseCircleOutline />
           </ry-icon>
         </div>
         <!-- password -->
-        <div
-          class="password-icon"
-          v-if="showPassword"
-          @click="handlePasswordVisible"
-        >
+        <div class="password-icon" v-if="showPassword" @click="handlePasswordVisible">
           <ry-icon :size="18">
             <Eye />
           </ry-icon>
@@ -56,19 +32,16 @@
     </template>
     <!-- textarea -->
     <template v-else>
-      <textarea
-        class="rosy-textarea-inner"
-        autocomplete="off"
-        :placeholder="placeholder"
-        :value="nativeInputValue"
-        @input="handleChange"
-      />
+      <textarea ref="textarea" class="rosy-textarea-inner" autocomplete="off" :placeholder="placeholder" :value="nativeInputValue"       
+      @blur="handleBlur"
+        @focus="handleFocus"
+        @input="handleChange" />
     </template>
   </div>
 </template>
   
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed,onMounted,ref,nextTick } from "vue";
 import { inputEmit, inputProps, useInput } from "./input";
 import { CloseCircleOutline } from "@vicons/ionicons5";
 import { Eye } from "@vicons/fa";
@@ -85,6 +58,10 @@ const {
   suffixIcon,
   prefixIcon,
 } = useInput(props, emits);
+
+const input = ref<HTMLInputElement>();
+const textarea = ref<HTMLTextAreaElement>()
+const inputOrTextarea = computed(() => input.value || textarea.value);
 const nativeInputValue = computed(() =>
   props.modelValue === null || props.modelValue === undefined
     ? ""
@@ -101,9 +78,35 @@ const hanldeClear = () => {
   emits("input", "");
   emits("clear", "");
 };
+
+const handleBlur = (e) => {
+  emits("blur", e);
+};
+const handleFocus = (e) => {
+  emits("focus", e);
+};
+
+const focus = () => {
+  nextTick(() => {
+    inputOrTextarea.value?.focus();
+  });
+};
+const blur = () => {
+  nextTick(() => {
+    inputOrTextarea.value?.blur();
+  });
+};
 const handlePasswordVisible = () => {
   passwordVisible.value = !passwordVisible.value;
 };
+
+defineExpose({
+  input,
+  inputOrTextarea,
+  textarea,
+  blur,
+  focus,
+});
 </script>
 <script lang="ts">
 export default {
@@ -112,16 +115,20 @@ export default {
 </script>
 <style lang="scss">
 $active-color: #18a058;
+
 .rosy-input {
   width: 100%;
   cursor: pointer;
   position: relative;
+
   &.rosy-input-prefix .rosy-input-inner {
     padding-left: 30px;
   }
+
   &.rosy-input-suffix .rosy-input-inner {
     padding-right: 30px;
   }
+
   &-inner {
     position: relative;
     cursor: pointer;
@@ -140,25 +147,30 @@ $active-color: #18a058;
     padding: 0 15px;
     color: rgb(51, 54, 57);
     transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
     &:hover {
       border-color: #c0c4cc;
     }
+
     &:active,
     &:focus {
       outline: none;
       border-color: $active-color;
       box-shadow: 0 0 0 2px rgba(24, 160, 88, 0.3);
     }
+
     &::placeholder {
       color: rgb(213, 215, 220);
       font-size: inherit;
     }
   }
+
   &.is-disabled {
     .rosy-input-inner {
       cursor: not-allowed;
       background-color: #fafafc;
       color: rgba(194, 194, 194, 1);
+
       &:hover,
       &:focus,
       &:active {
@@ -167,6 +179,7 @@ $active-color: #18a058;
       }
     }
   }
+
   .rosy-input-suffix-icon,
   .rosy-input-prefix-icon {
     position: absolute;
@@ -176,16 +189,20 @@ $active-color: #18a058;
     justify-content: center;
     align-items: center;
   }
+
   .rosy-input-suffix-icon {
     right: 5px;
   }
+
   .rosy-input-prefix-icon {
     left: 5px;
   }
+
   .close-icon,
   .password-icon {
     display: none;
   }
+
   &:hover .close-icon,
   &:focus .close-icon,
   &:hover .password-icon,
@@ -196,19 +213,24 @@ $active-color: #18a058;
     display: flex;
     justify-content: center;
     align-items: center;
+
     .rosy-icon {
       color: #dcdfe6;
+
       &:hover {
         color: #c0c4cc;
       }
     }
   }
+
   .suffix-icon .rosy-icon:hover {
     color: #dcdfe6;
   }
 }
+
 .rosy-textarea {
   width: 100%;
+
   .rosy-textarea-inner {
     display: block;
     resize: vertical;
@@ -223,15 +245,18 @@ $active-color: #18a058;
     border: 1px solid #dcdfe6;
     border-radius: 4px;
     transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
     &:hover {
       border-color: #c0c4cc;
     }
+
     &:active,
     &:focus {
       outline: none;
       border-color: $active-color;
       box-shadow: 0 0 0 2px rgba(24, 160, 88, 0.3);
     }
+
     &::placeholder {
       color: rgb(213, 215, 220);
       font-size: inherit;

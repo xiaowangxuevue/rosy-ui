@@ -1,7 +1,7 @@
 <template>
     <div class="rosy-tag" :class="classes" :style="style">
         <slot />
-        <ry-icon :size="18" v-if="closeable">
+        <ry-icon :size="18" v-if="closeable" @click="handleClose">
             <Close />
         </ry-icon>
     </div>
@@ -26,15 +26,18 @@ const props = defineProps({
         default: undefined,
     },
 });
-console.log(props.closeable, 'closeable');
-
+const emits = defineEmits(["close"])
 const classes = computed(() => ({
     [`is-${props.type}`]: props.type,
     [`is-${props.size}`]: props.size,
     [`is-closeable`]: props.closeable,
 
 }));
-
+const handleClose = () => {
+    console.log(123);
+    
+  emits("close");
+};
 
 const style = computed(() => {
     return props.color
@@ -116,7 +119,7 @@ export default {
     }
 
     &.is-closeable {
-        padding-right: 5x;
+        padding-right: 3x;
     }
 }
 </style>
