@@ -8,7 +8,7 @@
   "module": "dist/lib/zrosy-ui.esm.js",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build", 
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "vue-router": "4"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^17.7.0",
     "@rollup/plugin-alias": "^3.1.9",
     "@vicons/antd": "^0.11.0",
     "@vicons/carbon": "^0.11.0",
@@ -30,6 +31,10 @@
     "@vicons/tabler": "^0.11.0",
     "@vicons/utils": "^0.1.4",
     "@vitejs/plugin-vue": "^2.0.1",
+    "commitizen": "^4.3.0",
+    "commitlint": "^17.7.1",
+    "cz-customizable": "^7.0.0",
+    "husky": "^8.0.3",
     "marked": "^4.0.9",
     "rollup-plugin-esbuild": "^4.8.2",
     "rollup-plugin-node-resolve": "^5.2.0",
@@ -38,5 +43,15 @@
     "rollup-plugin-vue": "^6.0.0",
     "sass": "^1.47.0",
     "vite": "^2.7.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }
