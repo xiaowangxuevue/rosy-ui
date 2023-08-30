@@ -77,3 +77,8 @@ function doSomething(element: TargetElement) {
 }
 ..
 const { value } = e.target as TargetElement;：这行代码从事件对象 e 的 target 属性中提取 value 属性。这里使用了类型断言 as TargetElement，将 target 断言为 TargetElement 类型，以确保 value 的类型是合适的。
+
+##
+确保您的提交流程规范，并有助于提高代码质量、协作和项目管理
+ 为了实现规范，我们使用commitlint和husky 来进行提交检查，当执行git commit时会在对应的git钩子上做校验，只有符合格式的Commit message才能提交成功。
+为了方便使用，增加了commitizen支持，使用cz-customizable进行配置。支持使用git cz替代git commit。
