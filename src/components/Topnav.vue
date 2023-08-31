@@ -6,10 +6,10 @@
     <div class="logo" @click="getHome">
       <span>Aurora UI</span>
     </div>
-    <!-- <languageSwitch/> -->
+    <languageSwitch/>
     <div class="menu">
       <router-link exact to="/home">
-        <div class="menu-link hid" @click="tozh">
+        <div class="menu-link hid" >
 
           {{ $t('Home') }}
         </div>
@@ -36,7 +36,7 @@
 import { LogoGithub } from "@vicons/ionicons5";
 import { type Ref, inject } from "vue";
 import { useRouter } from "vue-router";
-// import languageSwitch from './languageSwitch.vue';
+import languageSwitch from './languageSwitch.vue';
 
 const router = useRouter();
 
@@ -60,11 +60,8 @@ const toggleAside = () => {
   }
 };
 
-const i18n = inject('i18n');
-const tozh = () => {
-  i18n.global.locale = 'zh'
-  console.log(i18n.global.locale ,'222')
-}
+
+
 </script>
 
 
