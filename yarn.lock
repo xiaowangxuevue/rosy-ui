@@ -201,6 +201,44 @@
   resolved "https://registry.npmjs.org/@emotion/hash/-/hash-0.8.0.tgz"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
+"@intlify/core-base@9.3.0-beta.26":
+  version "9.3.0-beta.26"
+  resolved "https://registry.npmjs.org/@intlify/core-base/-/core-base-9.3.0-beta.26.tgz"
+  integrity sha512-omhEuB6+uE3D36wAtBazTkjQxfMy+sHAdvPe51aPINVcIiL9RZiSMgecipbvkjqnL/5ogTcCc/UXKWlM3jb90g==
+  dependencies:
+    "@intlify/devtools-if" "9.3.0-beta.26"
+    "@intlify/message-compiler" "9.3.0-beta.26"
+    "@intlify/shared" "9.3.0-beta.26"
+    "@intlify/vue-devtools" "9.3.0-beta.26"
+
+"@intlify/devtools-if@9.3.0-beta.26":
+  version "9.3.0-beta.26"
+  resolved "https://registry.npmjs.org/@intlify/devtools-if/-/devtools-if-9.3.0-beta.26.tgz"
+  integrity sha512-N13XwjkT/payWlr8DqBVylsPlwjm4WyaI+eaG+eVdBKPw0yI/9c4zJ3U+/ASRBRuzArVJxALE+LT/cI1NxWGvw==
+  dependencies:
+    "@intlify/shared" "9.3.0-beta.26"
+
+"@intlify/message-compiler@9.3.0-beta.26":
+  version "9.3.0-beta.26"
+  resolved "https://registry.npmjs.org/@intlify/message-compiler/-/message-compiler-9.3.0-beta.26.tgz"
+  integrity sha512-qsfU6Lca7mI80ts1vgy+pfNvGm2gHy0nERpT/K1GYgnECmsKwud0e8SG1PPxKPEHKa5Mdngzs4pS7X1wH0SCGA==
+  dependencies:
+    "@intlify/shared" "9.3.0-beta.26"
+    source-map-js "^1.0.2"
+
+"@intlify/shared@9.3.0-beta.26":
+  version "9.3.0-beta.26"
+  resolved "https://registry.npmjs.org/@intlify/shared/-/shared-9.3.0-beta.26.tgz"
+  integrity sha512-RpCtfSYIg4tSskrazTr5+WCHyw6qpgwdIxC+x3nCnrPGxyk+en9FoSbadVfx/w7uDTdyhKslEw4d2+qhNc0s4Q==
+
+"@intlify/vue-devtools@9.3.0-beta.26":
+  version "9.3.0-beta.26"
+  resolved "https://registry.npmjs.org/@intlify/vue-devtools/-/vue-devtools-9.3.0-beta.26.tgz"
+  integrity sha512-IwJM8jUCM+savGDvgcOQaVHNMPDbvRf9dVjB+skCemYA7DBqtJ0YypTlRDtt6PO9rDfkWU2Z0ueaY/o6OaGtRg==
+  dependencies:
+    "@intlify/core-base" "9.3.0-beta.26"
+    "@intlify/shared" "9.3.0-beta.26"
+
 "@jridgewell/gen-mapping@^0.3.0":
   version "0.3.3"
   resolved "https://registry.npmmirror.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz"
@@ -2671,6 +2709,16 @@ vite-plugin-markdown@^2.0.2:
   optionalDependencies:
     fsevents "~2.3.2"
 
+vue-i18n@^9.3.0-beta.26:
+  version "9.3.0-beta.26"
+  resolved "https://registry.npmjs.org/vue-i18n/-/vue-i18n-9.3.0-beta.26.tgz"
+  integrity sha512-RfyxO4wMJ3SiqjxKGydA1RnJ6rvl4y60Urzqab80x9weCooNdb7++fRce+ZtSqtvnt4NTSq4je/WWyU8EAR9cA==
+  dependencies:
+    "@intlify/core-base" "9.3.0-beta.26"
+    "@intlify/shared" "9.3.0-beta.26"
+    "@intlify/vue-devtools" "9.3.0-beta.26"
+    "@vue/devtools-api" "^6.5.0"
+
 vue-router@4:
   version "4.2.4"
   resolved "https://registry.npmmirror.com/vue-router/-/vue-router-4.2.4.tgz"
@@ -2678,7 +2726,7 @@ vue-router@4:
   dependencies:
     "@vue/devtools-api" "^6.5.0"
 
-vue@^3.0.6, vue@^3.2.0, vue@^3.2.25, vue@3.3.4:
+vue@^3.0.0, vue@^3.0.6, vue@^3.2.0, vue@^3.2.25, vue@3.3.4:
   version "3.3.4"
   resolved "https://registry.npmmirror.com/vue/-/vue-3.3.4.tgz"
   integrity sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw==

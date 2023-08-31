@@ -18,3 +18,17 @@ declare module "*.md" {
   const str:string;
   export default str;
 }
+
+// custom.d.ts
+
+declare module '@/i18n' {
+  import { createI18n, VueI18n } from 'vue-i18n';
+
+  const messages: Record<string, Record<string, string>>;
+
+  const i18n: VueI18n;
+
+  function setupI18n(): VueI18n;
+
+  export { messages, i18n, setupI18n };
+}
