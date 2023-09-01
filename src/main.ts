@@ -10,7 +10,7 @@ import router from "./router";
 import enTranslation from './i18n/en.json'
 import zhTranslation from './i18n/zh.json'
 const app = createApp(App);
-const i18n = createI18n({
+const i18n:any = createI18n({
     locale: 'en', // 设置默认语言
     messages: {
         en: enTranslation, // 使用导入的翻译文件

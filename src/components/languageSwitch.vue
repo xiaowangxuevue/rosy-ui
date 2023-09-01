@@ -6,7 +6,7 @@
   import { ref, computed,inject } from 'vue';
 
   
-const i18n = inject('i18n');
+const i18n = inject('i18n') as any ;
 
   const buttonText = computed(() => {
     return i18n.global.locale === 'en' ? '中文' : 'English';
