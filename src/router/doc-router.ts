@@ -1,14 +1,20 @@
 import { h } from "vue";
+// import Markdown from "@/components/Markdown.vue";
+
+// import { html as GetStarted } from "../../markdown/get-started.md";
+// import { html as Install } from "../../markdown/install.md";
+// import { html as Intro } from "../../markdown/intro.md";
+
+
+// const md = (string) => h(Markdown, { content: string, key: string });
+// const IntroDoc = md(Intro);
+// const GetStartedDoc = md(GetStarted);
+// const InstallDoc = md(Install);
+
+
 import Markdown from "@/components/Markdown.vue";
-
-import { html as GetStarted } from "../../markdown/get-started.md";
-import { html as Install } from "../../markdown/install.md";
-import { html as Intro } from "../../markdown/intro.md";
-
-const md = (string) => h(Markdown, { content: string, key: string });
-const IntroDoc = md(Intro);
-const GetStartedDoc = md(GetStarted);
-const InstallDoc = md(Install);
+const md = (filename) =>
+  h(Markdown, { path: `../../markdown/${filename}.md`, key: filename });
 import TagDoc from "@/views/doc/tag/index.vue"
 import DividerDoc from "@/views/doc/divider/index.vue"
 import CheckboxDoc from "@/views/doc/checkbox/index.vue"
@@ -25,9 +31,9 @@ import InputDoc from "@/views/doc/input/index.vue";
 import SelectDoc from "@/views/doc/select/index.vue"
 const docMenus = {
     General: [
-        { path: "intro", component: IntroDoc, name: "Introduce" },
-        { path: "install", component: InstallDoc, name: "Install" },
-        { path: "get-started", component: GetStartedDoc, name: "GettingStarted" },
+        { path: "intro", component: md("intro") ,name:"Intro"},
+        { path: "install", component: md("install") ,name:"Install"},
+        { path: "get-started", component: md("get-started"),name:"GetStarted" },
     ],
     Component: [
 
